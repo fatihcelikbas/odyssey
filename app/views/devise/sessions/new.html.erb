@@ -23,6 +23,9 @@
       <div class="actions">
         <%= f.submit "Log in", class: "btn btn-primary" %>
       </div>
+      
+      <hr/>
+      <%= link_to "Sign in with Facebook", traveler_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
     <% end %>
 
   </div>
