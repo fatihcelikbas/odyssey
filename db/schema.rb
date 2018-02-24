@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20180224143554) do
     t.string "firstname"
     t.string "lastname"
     t.string "confirmation_token"
-    t.datetime "confirmed_At"
+    t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.index ["confirmation_token"], name: "index_travelers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_travelers_on_email", unique: true
