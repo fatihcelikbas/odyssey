@@ -20,7 +20,7 @@ class Traveler < ApplicationRecord
           traveler.lastname = auth.info.name.gsub(/\s+/, ' ').strip.split(" ")[-1]
           traveler.image = auth.info.image # assuming the traveler model has an image
           traveler.uid = auth.uid
-          traveler.provide = auth.provider
+          traveler.provider = auth.provider
           
           
           # If you are using confirmable and the provider(s) you use validate emails, 
