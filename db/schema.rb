@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225144006) do
+ActiveRecord::Schema.define(version: 20180225161955) do
 
   create_table "guides", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180225144006) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "firstname"
+    t.string "lastname"
     t.index ["email"], name: "index_guides_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
   end
