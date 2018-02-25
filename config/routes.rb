@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   
-=======
+  root 'pages#home'
+    
   devise_for :guides, 
               path: 'guides',
               controllers: {sessions: 'guides/sessions', confirmations: 'guides/confirmations',
               passwords: 'guides/passwords', registrations: 'guides/registrations', 
               unlocks: 'guides/unlocks'}
   resources :guides, only: [:show]
->>>>>>> 7fbc3d80a6dc7177b670ed95674b62b34f723376
-  root 'pages#home'
 
   devise_for :travelers,
               path: '',
@@ -18,7 +16,6 @@ Rails.application.routes.draw do
   
   resources :travelers, only: [:show]
   
-<<<<<<< HEAD
   resources :tours, except: [:edit] do
     member do
       get 'listing'
@@ -28,6 +25,5 @@ Rails.application.routes.draw do
       get 'location'
     end
   end
-=======
->>>>>>> 7fbc3d80a6dc7177b670ed95674b62b34f723376
+
 end
