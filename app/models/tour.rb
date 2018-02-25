@@ -1,5 +1,5 @@
 class Tour < ApplicationRecord
-  belongs_to :guide
+  belongs_to :traveler
   
   validates :max_persons, presence: true
   validates :duration, presence: true

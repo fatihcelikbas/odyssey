@@ -1,19 +1,19 @@
 class ToursController < ApplicationController
   before_action :set_tour, except: [:index, :new, :create]
-  before_action :authenticate_guide!, except: [:show]
+  before_action :authenticate_traveler!, except: [:show]
   
-  #get the tours of the guide
+  #get the tours of the traveler
   def index
-    @tours = current_guide.tours
+    @tours = current_traveler.tours
   end
 
   def new
-    @tour = current_guide.tours.build
+    @tour = current_traveler.tours.build
   end
 
   #create a new tour
   def create
-    @tour = current_guide.tours.build(tour_params)
+    @tour = current_traveler.tours.build(tour_params)
     if @tour.save
       redirect_to listing_tour_path(@tour), notice: "Saved..."
     else

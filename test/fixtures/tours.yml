@@ -14,7 +14,7 @@ one:
   is_landmarks: false
   is_museums: false
   active: false
-  guide: one
+  traveler: one
 
 two:
   price: 1
@@ -30,4 +30,4 @@ two:
   is_landmarks: false
   is_museums: false
   active: false
-  guide: two
+  traveler: two
