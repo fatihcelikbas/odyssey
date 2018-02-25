@@ -4,6 +4,7 @@ Rails.application.routes.draw do
               controllers: {sessions: 'guides/sessions', confirmations: 'guides/confirmations',
               passwords: 'guides/passwords', registrations: 'guides/registrations', 
               unlocks: 'guides/unlocks'}
+  resources :guides, only: [:show]
   root 'pages#home'
 
   devise_for :travelers,
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   
   resources :travelers, only: [:show]
+  
 end
