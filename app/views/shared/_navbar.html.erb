@@ -12,13 +12,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <% if (!traveler_signed_in? && !guide_signed_in?) %>
+            <% if (!traveler_signed_in?) %>
             
                 <li><%= link_to "Login", new_traveler_session_path %></li>
                 <li><%= link_to "Sign Up", new_traveler_registration_path %></li>
-                <li><%= link_to "Guides: Sign Up", new_guide_registration_path %></li>
-                <li><%= link_to "Guides: Sign In", new_guide_session_path %></li>
-            <% elsif (!guide_signed_in?) %>
+                
+            <% else %>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
                       role="button" aria-haspopup="true" aria-expanded="false">
@@ -34,22 +33,6 @@
                     <li><%= link_to "Log Out", destroy_traveler_session_path, method: :delete %></li>
                   </ul>
                 </li>
-            <% elsif (!traveler_signed_in?) %>
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-                    role="button" aria-haspopup="true" aria-expanded="false">
-                    <%= image_tag avatar_url(current_guide), class: "img-circle avatar-small" %>&nbsp;
-                    <%= current_guide.firstname %> <span class="caret"></span>
-                  </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">My Tours</a></li>
-                  <li><a href="#">Find a Tour</a></li>
-                  <li><a href="#">Current Tour</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "Edit Profile", edit_guide_registration_path %></li>
-                  <li><%= link_to "Log Out", destroy_guide_session_path, method: :delete %></li>
-                </ul>
-              </li>   
             <% end %>
             
             
