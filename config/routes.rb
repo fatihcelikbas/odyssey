@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'pages#home'
 
   devise_for :travelers,
@@ -7,4 +8,14 @@ Rails.application.routes.draw do
               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
   
   resources :travelers, only: [:show]
+  
+  resources :tours, except: [:edit] do
+    member do
+      get 'listing'
+      get 'pricing'
+      get 'description'
+      get 'features'
+      get 'location'
+    end
+  end
 end

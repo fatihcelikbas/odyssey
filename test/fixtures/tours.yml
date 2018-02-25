@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  duration: 1
+  max_persons: 1
+  title: MyString
+  description: MyString
+  city: MyString
+  is_outdoors: false
+  is_nightlife: false
+  is_foodie: false
+  is_daytrip: false
+  is_landmarks: false
+  is_museums: false
+  active: false
+  guide: one
+
+two:
+  price: 1
+  duration: 1
+  max_persons: 1
+  title: MyString
+  description: MyString
+  city: MyString
+  is_outdoors: false
+  is_nightlife: false
+  is_foodie: false
+  is_daytrip: false
+  is_landmarks: false
+  is_museums: false
+  active: false
+  guide: two
