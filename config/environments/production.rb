@@ -99,4 +99,5 @@ Rails.application.configure do
     authenticatiton: 'plain',
     user_name: 'postmaster@sandbox4fa85edbd96f4752a39c81ebe8cfcb75.mailgun.org',
     password: '294e7738bae1603bdbbfdca626ca6be3-fab099d8-0e272faf'
+  }
 end
