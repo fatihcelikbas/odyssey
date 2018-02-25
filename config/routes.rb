@@ -5,4 +5,6 @@ Rails.application.routes.draw do
               path: '',
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'register'},
               controllers: {omniauth_callbacks: 'omniauth_callbacks'} 
+  
+  resources :travelers, only: [:show]
 end
