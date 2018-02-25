@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :guides, 
+              path: 'guides',
+              controllers: {sessions: 'guides/sessions', confirmations: 'guides/confirmations',
+              passwords: 'guides/passwords', registrations: 'guides/registrations', 
+              unlocks: 'guides/unlocks'}
   root 'pages#home'
 
   devise_for :travelers,
