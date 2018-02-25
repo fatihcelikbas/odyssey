@@ -14,7 +14,7 @@ class CreateTours < ActiveRecord::Migration[5.1]
       t.boolean :is_landmarks
       t.boolean :is_museums
       t.boolean :active
-      t.references :guide, foreign_key: true
+      t.references :traveler, foreign_key: true
 
       t.timestamps
     end
