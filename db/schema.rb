@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225153357) do
+ActiveRecord::Schema.define(version: 20180226004949) do
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["tour_id"], name: "index_photos_on_tour_id"
+  end
 
   create_table "tours", force: :cascade do |t|
     t.integer "price"
@@ -26,10 +37,10 @@ ActiveRecord::Schema.define(version: 20180225153357) do
     t.boolean "is_landmarks"
     t.boolean "is_museums"
     t.boolean "active"
-    t.integer "traveler_id"
+    t.integer "guide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["traveler_id"], name: "index_tours_on_traveler_id"
+    t.index ["guide_id"], name: "index_tours_on_guide_id"
   end
 
   create_table "travelers", force: :cascade do |t|
