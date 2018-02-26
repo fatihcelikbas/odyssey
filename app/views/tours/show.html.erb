@@ -150,6 +150,9 @@
       <% for tour in @tour.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag tour.cover_photo(:thumb) %>
+              </div>
               <div class="panel-body">
                 <%= link_to tour.title, tour %><br/>
                 (<%= tour.distance.round(2) %> kms away)

@@ -14,8 +14,11 @@
 
         <% @tours.each do |tour| %>
           <div class="row">
+            <div class="col-md-2">
+              <%= image_tag tour.cover_photo(:thumb) %>
+            </div>
             <div class="col-md-7">
-              <h4><%= tour.title %></h4>
+              <h4><%= link_to tour.title, tour_path(tour)%></h4>
             </div>
             <div class="col-md-3 right">
               <%= link_to "Update", listing_tour_path(tour), class: "btn btn-form" %>

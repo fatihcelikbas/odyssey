@@ -89,7 +89,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  config.action_mailer.default_url_options = { host: 'https://881590b1eea442c4b4c6d23853b5b746.vfs.cloud9.us-east-2.amazonaws.com/'}
+  config.action_mailer.default_url_options = { host: 'https://odyssey-demo.herokuapp.com/'}
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
