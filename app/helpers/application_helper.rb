@@ -5,7 +5,7 @@ module ApplicationHelper
             "http://graph.facebook.com/#{traveler.uid}/picture?type=large"
         else
             gravatar_id = Digest::MD5::hexdigest(traveler.email).downcase
-            "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
+            "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identicon&s=150"
         end
     end
 end

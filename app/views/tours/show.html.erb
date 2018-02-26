@@ -52,10 +52,10 @@
     </div>
     <hr/>
 
-    <!-- Amenities -->
+    <!-- Features -->
     <div class="row">
       <div class="col-md-3">
-        <h4>Amenities</h4>
+        <h4>Features</h4>
       </div>
 
       <div class="col-md-9">
@@ -144,9 +144,9 @@
     </div>
     <hr/>
     
-    <!-- NEARBY ROOMS -->
+    <!-- NEARBY TOURS -->
     <div class="row">
-      <h3>Nearby</h3>
+      <h3>Nearby Tours</h3>
       <% for tour in @tour.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
@@ -167,6 +167,14 @@
   <div class="col-md-4">
     <!-- RESERVATION FORM -->
     <%= render 'reservations/form' %>
-   </div>
-   
+  </div>
+  <hr/>
+  <hr/>
+  <hr/>
+  <hr/>
+  <div class="col-md-4">
+    <!-- EDIT TOUR -->
+    <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form" %>
+  </div>
+  
 </div>
