@@ -1,6 +1,7 @@
 class Tour < ApplicationRecord
   belongs_to :traveler
-  has_many :photos  
+  has_many :photos
+  has_many :reservations
   
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
