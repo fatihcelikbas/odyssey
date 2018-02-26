@@ -4,7 +4,7 @@ class Traveler < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
-         
+  has_many :tours
     validates :firstname, presence: true, length: {maximum: 50}
     validates :lastname, presence: true, length: {maximum: 50}
     

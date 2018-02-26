@@ -17,7 +17,7 @@
           <div class="row">
             <div class="form-group">
               <label>Title</label>
-                <%= f.text_field :title, placeholder: "Title of your tour?", class: "form-control" %>
+                <%= f.text_field :title, placeholder: "Title of your tour?", class: "form-control", required: true %>
             </div>
           </div>
           
@@ -31,7 +31,7 @@
           <div class="row">
             <div class="form-group">
               <label>Description</label>
-                <%= f.text_area :description, rows: 5, placeholder: "What is your tour like? Where are you going?", class: "form-control" %>
+                <%= f.text_area :description, rows: 5, placeholder: "What is your tour like? Where are you going?", class: "form-control", required: true  %>
             </div>
           </div>
           

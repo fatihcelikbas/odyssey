@@ -1,17 +1,37 @@
-<ul class="sidebar-link">
+<ul class="sidebar-list">
   <li class="sidebar-item">
     <%= link_to "Listing", listing_tour_path, class: "sidebar-link active" %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
     <%= link_to "Pricing", pricing_tour_path, class: "sidebar-link active" %>
+    <% if !@tour.price.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Description", description_tour_path, class: "sidebar-link active" %>
+    <% if !@tour.title.blank? && !@tour.description.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
   <li class="sidebar-item">
     <%= link_to "Features", features_tour_path, class: "sidebar-link active" %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
     <%= link_to "Location", location_tour_path, class: "sidebar-link active" %>
+    <% if !@tour.city.blank? && !@tour.description.blank? %>
+      <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
   </li>
 </ul>
+
+<hr/>
+
+<% is_ready = !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? %>
+
+<%= form_for @tour do |f| %>
+  <%= f.hidden_field :active, value: true %>
+  <%= f.submit "Save", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+<% end %>

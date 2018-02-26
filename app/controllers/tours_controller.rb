@@ -17,7 +17,8 @@ class ToursController < ApplicationController
     if @tour.save
       redirect_to listing_tour_path(@tour), notice: "Saved..."
     else
-      render :new, notice: "Unfortunately something went wrong..." 
+      flash[:alert] = "Unfortunately something went wrong..."
+      render :new
     end
   end
 
@@ -46,12 +47,15 @@ class ToursController < ApplicationController
 
   #update a field
   def update
-    if @tour.update(tour_params)
+    
+    new_params = tour_params
+    new_params = tour_params.merge(active: true) if is_ready_tour
+    if @tour.update(new_params)
       flash[:notice] = "Saved"
     else
-      flash[:notice] = "Unfortunately something went wrong..."
+      flash[:alert] = "Unfortunately something went wrong..."
     end
-    redirect_back(fallback_location: request_referer)
+    redirect_back(fallback_location: request.referer)
   end
   
   #shorthand method
@@ -61,6 +65,10 @@ class ToursController < ApplicationController
     end
     
     def tour_params
-      params.require(:tour).permit( :duration, :max_persons, :title, :description, :city, :is_outdoors, :is_nightlife, :is_foodie, :is_daytrip, :is_landmarks, :is_museums, :active)
+      params.require(:tour).permit(:price, :duration, :max_persons, :title, :description, :city, :is_outdoors, :is_nightlife, :is_foodie, :is_daytrip, :is_landmarks, :is_museums, :active)
+    end
+    
+    def is_ready_tour
+      !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank?
     end
 end
