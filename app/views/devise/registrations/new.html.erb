@@ -26,7 +26,11 @@
 
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control", autocomplete: "off" %>
       </div>
-    
+      
+      <span class="pull-right">
+        <%= link_to "Resend Confirmation", new_traveler_confirmation_path %>
+      </span>
+      
       <div class="actions">
         <%= f.submit "Sign up", class: "btn btn-normal btn-block" %>
       </div>

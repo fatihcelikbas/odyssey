@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Odyssey</a>
+          <a class="navbar-brand" href="/">Odyssey</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -25,11 +25,11 @@
                       <%= current_traveler.firstname %> <span class="caret"></span>
                     </a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">My Tours</a></li>
-                    <li><a href="#">Find a Tour</a></li>
-                    <li><a href="#">Current Tour</a></li>
-                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "My Tours", tours_path %></li>
                     <li><%= link_to "Edit Profile", edit_traveler_registration_path %></li>
+                    <li><%= link_to "View My Profile", traveler_path(current_traveler.id)%></li>
+                    <li role="separator" class="divider"></li>
+                    
                     <li><%= link_to "Log Out", destroy_traveler_session_path, method: :delete %></li>
                   </ul>
                 </li>
