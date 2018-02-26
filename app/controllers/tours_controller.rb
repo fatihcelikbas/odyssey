@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
   before_action :set_tour, except: [:index, :new, :create]
   before_action :authenticate_traveler!, except: [:show]
+  before_Action :is_authorised only: [:listing, :pricing, :description, :photo_upload, :features, :location, :update]
   
   #get the tours of the traveler
   def index
@@ -36,6 +37,12 @@ class ToursController < ApplicationController
   def description
 
   end
+  
+  def photo_upload
+    
+    @photos = @tour.photos
+    
+  end
 
   def features
 
@@ -62,6 +69,10 @@ class ToursController < ApplicationController
   private
     def set_tour
       @tour = Tour.find(params[:id])
+    end
+    
+    def is_authorised
+      redirect_to root_path, alert: "You don't have permission" unless current_traveler.id == @tour.traveler_id
     end
     
     def tour_params

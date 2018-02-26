@@ -63,4 +63,17 @@ Rails.application.configure do
     user_name: 'postmaster@sandbox4fa85edbd96f4752a39c81ebe8cfcb75.mailgun.org',
     password: '294e7738bae1603bdbbfdca626ca6be3-fab099d8-0e272faf'
   }
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-us-east-2.amazonaws.com',
+    s3_credentials: {
+      bucket: 'odysseydemo',
+      access_key_id: 'AKIAJP5HFBLMMQDP6PRQ',
+      secret_access_key: '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',
+      s3_region: 'us-east-2'
+    }
+  }
+  
 end
