@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'description'
       get 'features'
       get 'location'
+      get 'photo_upload'
     end
     resources :photos, only: [:create, :destroy]
   end

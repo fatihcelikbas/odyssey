@@ -24,6 +24,7 @@ class ToursController < ApplicationController
   end
 
   def show
+    @photos = @tour.photos
   end
   
   def listing
@@ -39,9 +40,7 @@ class ToursController < ApplicationController
   end
   
   def photo_upload
-    
     @photos = @tour.photos
-    
   end
 
   def features
@@ -80,6 +79,6 @@ class ToursController < ApplicationController
     end
     
     def is_ready_tour
-      !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank?
+      !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? && !@tour.photos.blank?
     end
 end

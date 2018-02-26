@@ -75,5 +75,5 @@ Rails.application.configure do
       s3_region: 'us-east-2'
     }
   }
-  
+
 end

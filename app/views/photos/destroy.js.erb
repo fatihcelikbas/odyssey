@@ -1,1 +1,11 @@
 $('#photos').html("<%= j render 'photos_list' %>")
+
+<% if @tour.photos.blank? %>
+    $('#photo_check').hide();
+<% end %>
+
+<% if !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? && !@tour.photos.blank? %>
+    $('#save_button').attr('disabled', false);
+<% else %>
+    $('#save_button').attr('disabled', true);
+<% end %>

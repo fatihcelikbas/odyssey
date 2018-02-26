@@ -16,6 +16,12 @@
     <% end %>
   </li>
   <li class="sidebar-item">
+    <%= link_to "Photos", photo_upload_tour_path, class: "sidebar-link active" %>
+    <% if !@tour.photos.blank? %>
+      <span id="photo_check" class="pull-right text-babu"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <li class="sidebar-item">
     <%= link_to "Features", features_tour_path, class: "sidebar-link active" %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
@@ -29,9 +35,9 @@
 
 <hr/>
 
-<% is_ready = !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? %>
+<% is_ready = !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? && !@tour.photos.blank? %>
 
 <%= form_for @tour do |f| %>
   <%= f.hidden_field :active, value: true %>
-  <%= f.submit "Save", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= f.submit "Save", id: "save_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
 <% end %>
