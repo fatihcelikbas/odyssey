@@ -1,0 +1,83 @@
+<div class="row">
+
+  <!-- LEFT PANEL -->
+  <div class="col-md-8">
+
+    <!-- Listing Name -->
+    <div class="row">
+      <div class="col-md-8">
+        <h1><%= @tour.title %></h1>
+        <%= @tour.city %>
+      </div>
+      <div class="col-md-4 text-center">
+        <%= image_tag avatar_url(@tour.traveler), class: "img-circle avatar-large" %><br/><br/>
+        <%= @tour.traveler.firstname + " " + @tour.traveler.lastname %>
+      </div>
+    </div>
+    <hr/>
+
+    <!-- tour Info -->
+    <div class="row text-babu">
+      <div class="row text-center row-space-1">
+        <div class="col-md-3">
+          <i class="fa fa-money fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-blind fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-hourglass-2 fa-2x"></i>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-building-o fa-2x"></i>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-3"><%= pluralize(@tour.price, "Dollar") %></div>
+        <div class="col-md-3"><%= pluralize(@tour.max_persons, "Guest") %></div>
+        <div class="col-md-3"><%= pluralize(@tour.duration, "Hour") %></div>
+        <div class="col-md-3"><%= @tour.city %></div>
+      </div>
+
+    </div>
+    <hr/>
+
+    <!-- About -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>About This Listing</h3>
+        <p><%= @tour.description %></p>
+      </div>
+    </div>
+    <hr/>
+
+    <!-- Amenities -->
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Amenities</h4>
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="amenities">
+              <li class="<%= 'text-line-through' if !@tour.is_outdoors %>">Outdoorsy</li>
+              <li class="<%= 'text-line-through' if !@tour.is_nightlife %>">Night Life</li>
+              <li class="<%= 'text-line-through' if !@tour.is_foodie %>">Foodie</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="amenities">
+              <li class="<%= 'text-line-through' if !@tour.is_daytrip %>">Day Trip</li>
+              <li class="<%= 'text-line-through' if !@tour.is_landmarks %>">Landmarks</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <hr/>
+
+</div>
