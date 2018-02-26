@@ -1,7 +1,7 @@
 class ToursController < ApplicationController
   before_action :set_tour, except: [:index, :new, :create]
   before_action :authenticate_traveler!, except: [:show]
-  before_Action :is_authorised only: [:listing, :pricing, :description, :photo_upload, :features, :location, :update]
+  before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :features, :location, :update]
   
   #get the tours of the traveler
   def index
