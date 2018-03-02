@@ -64,6 +64,14 @@ class ToursController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
   
+  # --- Reservations ---
+  def preload
+    today = Date.today
+    reservations = @tour.reservations.where("start_date >= ?", today)
+
+    render json: reservations
+  end
+  
   #shorthand method
   private
     def set_tour

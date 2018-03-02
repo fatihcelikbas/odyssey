@@ -4,7 +4,6 @@ one:
   traveler: one
   tour: one
   start_date: 2018-02-26 17:56:19
-  start_hour: 2018-02-26 17:56:19
   price: 1
   total: 1
 
@@ -12,6 +11,5 @@ two:
   traveler: two
   tour: two
   start_date: 2018-02-26 17:56:19
-  start_hour: 2018-02-26 17:56:19
   price: 1
   total: 1

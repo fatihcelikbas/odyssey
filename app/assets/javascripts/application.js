@@ -13,6 +13,13 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require jquery-ui/datepicker
+//= require datetimepicker
 //= require toastr
 //= require_tree .
+
+/*global toastr*/
+toastr.options = {
+    "closeButton": true,
+    "positionClass": "toast-top-left",
+    "timeOut": "2000"
+}

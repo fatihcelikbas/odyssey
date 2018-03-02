@@ -8,12 +8,12 @@ class ReservationsController < ApplicationController
       flash[:alert] = "You can't book your own tour!"
     else
       start_date = Date.parse(reservation_params[:start_date])
-      start_time = reservation_params[:start_time]  #not sure if this should be Time.parse instead?
       
       @reservation = current_traveler.reservations.build(reservation_params)
       @reservation.tour = tour
       @reservation.price = tour.price
       @reservation.total = tour.price * tour.duration
+      @reservation.duration = tour.duration
       @reservation.save
       
       flash[:notice] = "Booked successfully!"
@@ -23,6 +23,6 @@ class ReservationsController < ApplicationController
   
   private
     def reservation_params
-      params.require(:reservation).permit(:start_date, :start_hour)
+      params.require(:reservation).permit(:start_date)
     end
 end
