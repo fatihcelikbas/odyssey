@@ -1,8 +1,15 @@
 <%= form_for([@tour, @tour.reservations.new]) do |f| %>
   <%= f.text_field :start_date %>
   <br/>
-  <%= f.select :start_hour, '1'..'24' %>
-  
+  <%= f.text_field :start_hour %>
   <br/>
-  <%= f.submit "Book Now", class: "btn btn-normal"%>
+  <%= f.submit "Book Now", class: "btn btn-normal btn-block"%>
 <% end %>
+
+<script>
+  $(function() {
+    $('#reservation_start_date').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+  });
+</script>

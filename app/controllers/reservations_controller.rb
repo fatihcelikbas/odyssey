@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
     tour = Tour.find(params[:tour_id])
     
     if current_traveler == tour.traveler
-      flash[:alert] = "You can't book your own property!"
+      flash[:alert] = "You can't book your own tour!"
     else
       start_date = Date.parse(reservation_params[:start_date])
       start_time = reservation_params[:start_time]  #not sure if this should be Time.parse instead?
