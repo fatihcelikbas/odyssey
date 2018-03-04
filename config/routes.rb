@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :reservations, only: [:create]
   end
+  
+  resources :guide_reviews, only: [:create, :destroy]
+  resources :tourist_reviews, only: [:create, :destroy]
 
 end
