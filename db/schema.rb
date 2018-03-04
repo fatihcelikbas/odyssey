@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302190658) do
+ActiveRecord::Schema.define(version: 20180302215626) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "tour_id"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 20180302190658) do
     t.index ["traveler_id"], name: "index_reservations_on_traveler_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.integer "star", default: 1
+    t.integer "reservation_id"
+    t.integer "tourist_id"
+    t.integer "guide_id"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tour_id"
+    t.index ["guide_id"], name: "index_reviews_on_guide_id"
+    t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
+    t.index ["tour_id"], name: "index_reviews_on_tour_id"
+    t.index ["tourist_id"], name: "index_reviews_on_tourist_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.integer "price"
     t.integer "duration"
@@ -50,12 +66,12 @@ ActiveRecord::Schema.define(version: 20180302190658) do
     t.boolean "is_landmarks"
     t.boolean "is_museums"
     t.boolean "active"
-    t.integer "traveler_id"
+    t.integer "guide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["traveler_id"], name: "index_tours_on_traveler_id"
+    t.index ["guide_id"], name: "index_tours_on_guide_id"
   end
 
   create_table "travelers", force: :cascade do |t|

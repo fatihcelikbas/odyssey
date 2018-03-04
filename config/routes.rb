@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create]
   end
   
+  resources :guide_reviews, only: [:create, :destroy]
+  resources :tourist_reviews, only: [:create, :destroy]
+
   get '/your_trips' => 'reservations#your_trips'
   
   get '/your_reservations' => 'reservations#your_reservations'
