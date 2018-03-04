@@ -116,6 +116,19 @@
     </div>
     <hr/>
     
+    <!-- REVIEWS -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>
+          <%= pluralize(@tourist_reviews.count, "Review") %>
+          <span id="average_rating"></span>
+        </h3>
+        <div class="container">
+          <div><%=  render "reviews/tourist_list" %></div>
+        </div>
+      </div>
+    </div>
+    
     <!-- GOOGLE MAP -->
     <div class="row">
 
@@ -182,3 +195,12 @@
   </div>
   
 </div>
+
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @tour.average_rating %>
+  });
+</script>
+

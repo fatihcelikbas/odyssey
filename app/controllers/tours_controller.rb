@@ -25,6 +25,7 @@ class ToursController < ApplicationController
 
   def show
     @photos = @tour.photos
+    @tourist_reviews = @tour.tourist_reviews
   end
   
   def listing
