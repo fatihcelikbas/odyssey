@@ -8,10 +8,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Odyssey</a>
+          <%= link_to "Odyssey", root_path, class: "navbar-brand"%>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button class="btn btn-form btn-small">
+                <%= link_to "Become a guide!", new_tour_path, style: "color: white; text_decoration: none;" %>
+              </button>
+            </li>
             <% if (!traveler_signed_in?) %>
             
                 <li><%= link_to "Login", new_traveler_session_path %></li>
@@ -26,15 +31,16 @@
                     </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to "View My Profile", traveler_path(current_traveler.id)%></li>
+                    <li><%= link_to "Make New Tour", new_tour_path %></li>
                     <li><%= link_to "My Tours", tours_path %></li>
+                    <li><%= link_to "My Reservations", your_reservations_path %></li>
+                    <li><%= link_to "My Trips", your_trips_path %></li>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to "Edit Profile", edit_traveler_registration_path %></li>
                     <li><%= link_to "Log Out", destroy_traveler_session_path, method: :delete %></li>
                   </ul>
                 </li>
             <% end %>
-            
-            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

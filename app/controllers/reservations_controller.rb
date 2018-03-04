@@ -13,12 +13,20 @@ class ReservationsController < ApplicationController
       @reservation.tour = tour
       @reservation.price = tour.price
       @reservation.total = tour.price * tour.duration
-      @reservation.duration = tour.duration
+      @reservation.duration = tour.duration 
       @reservation.save
       
       flash[:notice] = "Booked successfully!"
     end
     redirect_to tour
+  end
+  
+  def your_trips
+    @trips = current_traveler.reservations.order(start_date: :asc)
+  end
+  
+  def your_reservations
+    @tours = current_traveler.tours
   end
   
   private
