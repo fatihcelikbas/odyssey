@@ -16,6 +16,7 @@
 //= require datetimepicker
 //= require jquery-ui
 //= require toastr
+//= require cable
 //= require_tree .
 
 /*global toastr*/

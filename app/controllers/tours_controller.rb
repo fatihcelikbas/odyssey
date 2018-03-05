@@ -90,7 +90,7 @@ class ToursController < ApplicationController
     end
 
     def tour_params
-      params.require(:tour).permit(:price, :duration, :max_persons, :title, :description, :city, :is_outdoors, :is_nightlife, :is_foodie, :is_daytrip, :is_landmarks, :is_museums, :active)
+      params.require(:tour).permit(:price, :duration, :max_persons, :title, :description, :city, :is_outdoors, :is_nightlife, :is_foodie, :is_daytrip, :is_landmarks, :is_museums, :active, :instant)
     end
 
     def is_ready_tour

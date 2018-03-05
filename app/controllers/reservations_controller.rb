@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_traveler!
+  before_action :set_reservation, only: [:approve, :decline]
   
   def create
     tour = Tour.find(params[:tour_id])
@@ -14,14 +15,23 @@ class ReservationsController < ApplicationController
       @reservation.price = tour.price
       @reservation.total = tour.price * tour.duration
       @reservation.duration = tour.duration 
-      @reservation.save
+      #@reservation.save
+      if @reservation.save
+        if tour .Request?
+          flash[:notice] = "Request sent successfully!"
+        else
+          @reservation.Approved!
+          flash[:notice] = "Reservation created successfully!"
+        end
+      else
+        flash[:alert] = "Cannot make a reservation!"
+      end
       
-      flash[:notice] = "Booked successfully!"
     end
     redirect_to tour
   end
   
-  def your_trips
+   def your_trips
     @trips = current_traveler.reservations.order(start_date: :asc)
   end
   
@@ -29,7 +39,21 @@ class ReservationsController < ApplicationController
     @tours = current_traveler.tours
   end
   
+  def approve
+    @reservation.Approved!
+    redirect_to your_reservations_path
+  end
+
+  def decline
+    @reservation.Declined!
+    redirect_to your_reservations_path
+  end
+
+  
   private
+    def set_reservation
+      @reservation = Reservation.find(params[:id])
+    end
     def reservation_params
       params.require(:reservation).permit(:start_date)
     end

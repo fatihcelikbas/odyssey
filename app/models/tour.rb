@@ -1,4 +1,5 @@
 class Tour < ApplicationRecord
+  enum instant: {Request: 0, Insant: 1}
   belongs_to :traveler
   has_many :photos, dependent: :delete_all
   has_many :reservations, dependent: :delete_all
