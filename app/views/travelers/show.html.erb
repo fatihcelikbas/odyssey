@@ -17,7 +17,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> 
     
     <div class="col-md-9">
         <h2><%= @traveler.firstname + " " + @traveler.lastname %></h2>
@@ -28,18 +28,7 @@
         
         <h4>Listings (<%= @tours.length %>)</h4><br/>
         <div class="row">
-            <% @tours.each do |tour| %>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading preview">
-                            <%= image_tag tour.cover_photo(:medium) %>
-                        </div>
-                        <div class="panel-body">
-                            <%= link_to tour.title, tour%>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+            <%= render partial: "tours/tours_list", locals: {tours: @tours}%>
         </div>
     </div>
     <br/>
