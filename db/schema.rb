@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302215626) do
+ActiveRecord::Schema.define(version: 20180305032039) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "tour_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180302215626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
+    t.integer "status", default: 0
     t.index ["tour_id"], name: "index_reservations_on_tour_id"
     t.index ["traveler_id"], name: "index_reservations_on_traveler_id"
   end
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180302215626) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "instant", default: 1
     t.index ["traveler_id"], name: "index_tours_on_traveler_id"
   end
 

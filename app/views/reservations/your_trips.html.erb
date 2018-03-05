@@ -17,6 +17,7 @@
           <div class="row">
             <div class="col-md-2">
               <%= trip.start_date.strftime('%v at %H:%M for ' + trip.duration.to_s + ' hours') %>
+              <p><%= trip.status %></p>
             </div>
             <div class="col-md-2">
               <%= link_to tour_path(trip.tour) do %>
@@ -33,7 +34,7 @@
               </span>
             </div>
             <div class="col-md-3 text-right">
-              <%= render partial: "reviews/tourist_form", locals: {reservation: trip} %>
+              <%= render partial: "reviews/tourist_form", locals: {reservation: trip} if trip.Approved? %>
             </div>
           </div>
           <hr/>
