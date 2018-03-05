@@ -3,9 +3,9 @@ class TouristReviewsController < ApplicationController
     def create
         
         @reservation = Reservation.where(
-                        id: tourist_review_params[:reservation_id],
-                        tour_id: tourist_review_params[:tour_id]
-                        ).first
+                    id: tourist_review_params[:reservation_id],
+                    tour_id: tourist_review_params[:tour_id]
+                    ).first
         
         if !@reservation.nil? && @reservation.tour.traveler.id == tourist_review_params[:guide_id].to_i
            
@@ -40,7 +40,7 @@ class TouristReviewsController < ApplicationController
     
     
     private
-        def tourist_review_params
-           params.require(tourist_review).permit(:comment, :star, :tour_id, :reservation_id, :guide_id) 
-        end
+    def tourist_review_params
+        params.require(:tourist_review).permit(:comment, :star, :tour_id, :reservation_id, :guide_id) 
+    end
 end

@@ -66,12 +66,12 @@ ActiveRecord::Schema.define(version: 20180302215626) do
     t.boolean "is_landmarks"
     t.boolean "is_museums"
     t.boolean "active"
-    t.integer "guide_id"
+    t.integer "traveler_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["guide_id"], name: "index_tours_on_guide_id"
+    t.index ["traveler_id"], name: "index_tours_on_traveler_id"
   end
 
   create_table "travelers", force: :cascade do |t|
