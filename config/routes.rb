@@ -25,9 +25,15 @@ Rails.application.routes.draw do
   
   resources :guide_reviews, only: [:create, :destroy]
   resources :tourist_reviews, only: [:create, :destroy]
+  
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 
   get '/your_trips' => 'reservations#your_trips'
   
   get '/your_reservations' => 'reservations#your_reservations'
+  
+  mount ActionCable.server => '/cable'
   
 end

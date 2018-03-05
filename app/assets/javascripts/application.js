@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require datetimepicker
 //= require toastr
+//= require cable
 //= require_tree .
 
 /*global toastr*/
