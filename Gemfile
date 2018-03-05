@@ -44,3 +44,6 @@ gem 'aws-sdk', '~> 2.8'
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
 end
+
+gem 'ransack', '~> 1.7'
+gem 'jquery-ui-rails', '~> 5.0'
