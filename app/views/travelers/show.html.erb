@@ -42,4 +42,19 @@
             <% end %>
         </div>
     </div>
+    <br/>
+    
+    <h4>Reviews from Tourists (<%= @tourist_reviews.count %>)</h4>
+    <div class="row">
+        <%= render "reviews/tourist_list" %>
+    </div>
+    <br/>
+    
+    <h4>Reviews from Guides (<%= @guide_reviews.count %>)</h4>
+    <div class="row">
+        <%= render "reviews/guide_list" %>
+    </div>
+    
+    
+    
 </div>

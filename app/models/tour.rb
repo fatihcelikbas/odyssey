@@ -2,6 +2,7 @@ class Tour < ApplicationRecord
   belongs_to :traveler
   has_many :photos
   has_many :reservations
+  has_many :tourist_reviews
   
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
@@ -20,5 +21,9 @@ class Tour < ApplicationRecord
     else
       "blank.jpg"
     end
+  end
+  
+  def average_rating
+    tourist_reviews.count == 0 ? 0 : tourist_reviews.average(:star).round(2).to_i
   end
 end
