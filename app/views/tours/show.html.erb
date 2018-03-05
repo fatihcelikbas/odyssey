@@ -11,7 +11,9 @@
       </div>
       <div class="col-md-4 text-center">
         <%= image_tag avatar_url(@tour.traveler), class: "img-circle avatar-large" %><br/><br/>
-        <%= @tour.traveler.firstname + " " + @tour.traveler.lastname %>
+        <%= link_to traveler_path(@tour.traveler) do %>
+          <%= @tour.traveler.firstname + " " + @tour.traveler.lastname %>
+        <% end %>
       </div>
     </div>
     <hr/>
