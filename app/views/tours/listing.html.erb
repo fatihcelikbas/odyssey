@@ -31,6 +31,13 @@
               </div>
             </div>
             
+            <div class="col-md-4 select">
+              <div class="form-group">
+                <label>Booking Request Type</label>
+                <%= f.select :instant, Tour.instants.map{|key, value| [key.humanize, key]}, selected: "Instant",  prompt: "Select...", class: "form_control" %>
+              </div>
+            </div>
+            
           </div>
           
           <div><%= f.submit "Save", class: "btn btn-normal"%></div>

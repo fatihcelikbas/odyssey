@@ -35,5 +35,13 @@ Rails.application.routes.draw do
   get '/your_reservations' => 'reservations#your_reservations'
   
   mount ActionCable.server => '/cable'
+  get 'search' => 'pages#search'
+  
+  resources :reservations, only: [:approve, :decline] do
+    member do
+      post '/approve' => "reservations#approve"
+      post '/decline' => "reservations#decline"
+    end
+  end
   
 end

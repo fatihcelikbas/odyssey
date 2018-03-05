@@ -5,14 +5,14 @@ class GuideReviewsController < ApplicationController
         @reservation = Reservation.where(
                         id: guide_review_params[:reservation_id],
                         tour_id: guide_review_params[:tour_id],
-                        traveler_id: guide_review_params[:traveler_id]
+                        traveler_id: guide_review_params[:tourist_id]
                         ).first
         
         if !@reservation.nil?
            
            @has_reviewed = GuideReview.where(
                                 reservation_id: @reservation.id,
-                                guide_id: guide_review_params[:guide_id]
+                                tourist_id: guide_review_params[:tourist_id]
                             ).first
             
             if @has_reviewed.nil?
@@ -42,6 +42,6 @@ class GuideReviewsController < ApplicationController
     
     private
         def guide_review_params
-           params.require(guide_review).permit(:comment, :star, :tour_id, :reservation_id, :tourist_id) 
+           params.require(:guide_review).permit(:comment, :star, :tour_id, :reservation_id, :tourist_id) 
         end
 end

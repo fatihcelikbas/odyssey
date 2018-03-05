@@ -18,11 +18,14 @@
             <div class="col-md-2">
               <%= image_tag tour.cover_photo(:thumb) %>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-5">
               <h4><%= link_to tour.title, tour_path(tour)%></h4>
             </div>
-            <div class="col-md-3 right">
+            <div class="col-md-2 right">
               <%= link_to "Update", listing_tour_path(tour), class: "btn btn-form" %>
+            </div>
+            <div class="col-md-3 right">
+              <%= link_to "", tour_path(tour), method: :delete, class: "fa fa-trash fa-2x"%>
             </div>
           </div>
           <hr/>

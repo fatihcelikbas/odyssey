@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <span><i class="fa fa-bolt" style="color: #ffb400"></i> $<%= @tour.price %></span>
+    <span><% if @tour.Insant? %><i class="fa fa-bolt" style="color: #ffb400"></i><% end %> $<%= @tour.price %></span>
     <span class="pull-right">Per Hour</span>
   </div>
   <div class="panel-body">
@@ -28,8 +28,12 @@
           </tbody>
         </table>
       </div>
-
-      <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block"%>
+      
+      <% if @tour.Insant? %>
+        <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block"%>
+      <% else %>
+        <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block"%>
+      <% end %>
     <% end %>
   </div>
 </div>

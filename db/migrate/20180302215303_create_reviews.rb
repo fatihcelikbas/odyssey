@@ -4,8 +4,8 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.text :comment
       t.integer :star, default: 1
       t.references :reservation, foreign_key: true
-      t.references :tourist, foreign_key: true
-      t.references :guide, foreign_key: true
+      t.references :tourist, foreign_key:  { to_table: :travelers }
+      t.references :guide, foreign_key:  { to_table: :travelers }
       t.string :type
 
       t.timestamps

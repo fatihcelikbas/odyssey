@@ -8,57 +8,76 @@
         </div>
         <br/>
         <div class="panel panel-default">
-            <div class="panel-heading">About me</div>
+            <div class="panel-heading">Verified Information</div>
             <div class="panel-body">
                 <ul class="sidebar-list">
-                    <% if @traveler.confirmation_token%>
-                        <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-                    <% end %>
-                    <% if @traveler.provider %>
-                        <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-                    <% end %>
-                    <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
+                  <% if @traveler.confirmation_token%>
+                      <li>Email Address<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                  <% end %>
+                  <% if @traveler.provider %>
+                      <li>Facebook<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                  <% end %>
+                  <% if @traveler.phone_number %>
+                      <li>Phone Number<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                  <% end %>
                 </ul>
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-9">
         <h2><%= @traveler.firstname + " " + @traveler.lastname %></h2>
-        
+        <div class = "panel panel-default">
+          <div class="panel-heading">Overview</div>
+            <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <td><i class="fa fa-language fa-lg icon-blue"></i>&nbsp&nbspSpeaks English, Spanish, German, and Swahili</td>
+                    </div>
+                    <div class="col-md-6">
+                      <td><i class="fa fa-music fa-lg icon-blue"></i>&nbsp&nbspLoves Radiohead and The Killers</td>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <td><i class="fa fa-car fa-lg icon-blue"></i>&nbspHas a car</td>
+                    </div>
+                    <div class="col-md-6">
+                      <td><i class="fa fa-dribbble fa-lg icon-blue"></i>&nbsp&nbspLikes Sports</td>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <td><i class="fa fa-beer fa-lg icon-blue"></i>&nbsp&nbspBar Scene</td>
+                    </div>
+                    <div class="col-md-6">
+                      <td><i class="fa fa-transgender-alt fa-lg icon-blue"></i>&nbspMale</td>
+                    </div>
+                  </div>
+             </div>
+        </div>
         <div class="description row-space-3">
             <%= @traveler.description %>
         </div>
-        
+
         <h4>Listings (<%= @tours.length %>)</h4><br/>
         <div class="row">
-            <% @tours.each do |tour| %>
-                <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading preview">
-                            <%= image_tag tour.cover_photo(:medium) %>
-                        </div>
-                        <div class="panel-body">
-                            <%= link_to tour.title, tour%>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+            <%= render partial: "tours/tours_list", locals: {tours: @tours}%>
         </div>
     </div>
     <br/>
-    
+
     <h4>Reviews from Tourists (<%= @tourist_reviews.count %>)</h4>
     <div class="row">
         <%= render "reviews/tourist_list" %>
     </div>
     <br/>
-    
+
     <h4>Reviews from Guides (<%= @guide_reviews.count %>)</h4>
     <div class="row">
         <%= render "reviews/guide_list" %>
     </div>
-    
-    
-    
+
+
+
 </div>
