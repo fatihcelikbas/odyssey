@@ -2,7 +2,7 @@ class ToursController < ApplicationController
   before_action :set_tour, except: [:index, :new, :create]
   before_action :authenticate_traveler!, except: [:show]
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :features, :location, :update]
-  
+
   #get the tours of the traveler
   def index
     @tours = current_traveler.tours
@@ -27,7 +27,7 @@ class ToursController < ApplicationController
     @photos = @tour.photos
     @tourist_reviews = @tour.tourist_reviews
   end
-  
+
   def listing
 
   end
@@ -39,7 +39,7 @@ class ToursController < ApplicationController
   def description
 
   end
-  
+
   def photo_upload
     @photos = @tour.photos
   end
@@ -54,7 +54,7 @@ class ToursController < ApplicationController
 
   #update a field
   def update
-    
+
     new_params = tour_params
     new_params = tour_params.merge(active: true) if is_ready_tour
     if @tour.update(new_params)
@@ -64,7 +64,7 @@ class ToursController < ApplicationController
     end
     redirect_back(fallback_location: request.referer)
   end
-  
+
   # --- Reservations ---
   def preload
     today = Date.today
@@ -72,21 +72,27 @@ class ToursController < ApplicationController
 
     render json: reservations
   end
-  
+
+  def destroy
+    @tour.destroy
+	  flash[:success] = "Tour deleted"
+    redirect_to tours_path
+  end
+
   #shorthand method
   private
     def set_tour
       @tour = Tour.find(params[:id])
     end
-    
+
     def is_authorised
       redirect_to root_path, alert: "You don't have permission" unless current_traveler.id == @tour.traveler_id
     end
-    
+
     def tour_params
       params.require(:tour).permit(:price, :duration, :max_persons, :title, :description, :city, :is_outdoors, :is_nightlife, :is_foodie, :is_daytrip, :is_landmarks, :is_museums, :active)
     end
-    
+
     def is_ready_tour
       !@tour.active && !@tour.price.blank? && !@tour.title.blank? && !@tour.city.blank? && !@tour.photos.blank?
     end
