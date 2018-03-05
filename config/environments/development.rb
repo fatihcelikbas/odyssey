@@ -36,8 +36,8 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-  
-  config.action_cable.url = "wss://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/cable/"
+
+  config.action_cable.url = "ws://localhost:3000/cable"
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -53,9 +53,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  
+
   config.action_mailer.default_url_options = { host: 'https://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/'}
-  
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mailgun.org',
@@ -65,7 +65,7 @@ Rails.application.configure do
     user_name: 'postmaster@sandbox4fa85edbd96f4752a39c81ebe8cfcb75.mailgun.org',
     password: '294e7738bae1603bdbbfdca626ca6be3-fab099d8-0e272faf'
   }
-  
+
   config.paperclip_defaults = {
     storage: :s3,
     path: ':class/:attachment/:id/:style/:filename',
