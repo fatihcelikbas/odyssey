@@ -3,7 +3,7 @@
         <div class="center">
             <%= image_tag avatar_url(@traveler), class: "avatar-full"%>
             <% if current_traveler && current_traveler != @traveler %>
-                <%= link_to "Send Message", conversation_path(sender_id: current_traveler.id, recipient_id: @traveler.id), method: :post, class: "btn btn-default" %>
+                <%= link_to "Send Message", conversations_path(sender_id: current_traveler.id, recipient_id: @traveler.id), method: :post, class: "btn btn-default" %>
             <% end %>
         </div>
         <br/>

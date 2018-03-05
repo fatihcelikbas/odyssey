@@ -37,7 +37,7 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
   
-  config.action_cable.url = "ws://https://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/cable"
+  config.action_cable.url = "wss://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/cable/"
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
