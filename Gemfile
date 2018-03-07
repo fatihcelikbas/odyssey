@@ -40,6 +40,7 @@ gem 'geocoder', '~> 1.4'
 
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.8'
+gem 'redis'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-datetimepicker'
