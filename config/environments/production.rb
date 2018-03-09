@@ -88,7 +88,7 @@ Rails.application.configure do
 
   config.action_cable.url = "wss://odyssey-demo.herokuapp.com/cable/"
   config.action_cable.allowed_request_origins = [
-    'https://odyssey-demo.herokuapp.com', 'http://odyssey-demo.herokuapp.com']
+    'https://action-cable-odyssey-demo.herokuapp.com', 'http://action-cable-odyssey-demo.herokuapp.com']
 
 
   # Do not dump schema after migrations.
