@@ -86,6 +86,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.middleware.use ChatActionCable
   config.action_cable.url = "wss://odyssey-demo.herokuapp.com/cable/"
   config.action_cable.allowed_request_origins = [
     'https://odyssey-demo.herokuapp.com', 'http://odyssey-demo.herokuapp.com']
