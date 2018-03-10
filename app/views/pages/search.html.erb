@@ -1,6 +1,18 @@
 <div id="main">
   <div id="left">
     <!-- SEARCH PANEL -->
+    <%= form_tag search_path, method: :get do %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= text_field_tag :search, params[:search], placeholder: "Somewhere else?", class: "form-control", id: "finish" %>
+        </div>
+        <div class="col-md-3">
+          <%= submit_tag "Search", class: "btn btn-normal" %>
+        </div>
+      </div>
+      <br/><br/>
+    <% end %>
+
     <div class="row">
       <div class="col-md-offset-4 col-md-4">
         <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
@@ -12,7 +24,6 @@
     <div class="row">
       <br/>
       <div class="collapse" id="collapsePanel">
-
           <%= search_form_for @search, url: search_path, remote: true do |f| %>
 
               <div class="row">
@@ -37,7 +48,7 @@
                 </div>
               </div>
               <hr/>
-              
+
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group select">
@@ -84,7 +95,7 @@
           <% end %>
       </div>
       <br/>
-      
+
       <div class="row" id="tour_listing">
         <%= render partial: "tours/tours_list", locals: {tours: @arrTours}%>
       </div>
@@ -108,20 +119,20 @@
           var map = new google.maps.Map(document.getElementById('map'), {
             center: location,
             zoom: 12
-          }); 
-          
+          });
+
           var marker, infowindow;
-          
+
           tours.forEach(function(tour) {
               marker = new google.maps.Marker({
               position: {lat: tour.latitude, lng: tour.longitude},
               map: map
             });
-            
+
             infowindow = new google.maps.InfoWindow({
               content: "<div class='map_price'>$" + tour.price + "</div>"
             });
-            
+
             infowindow.open(map, marker);
           });
         }
@@ -134,13 +145,16 @@
 </div>
 
 
-<script> 
+<script>
+  $(function() {
+    $("#finish").geocomplete();
+  })
   $('#reservation_start_date').datetimepicker({
       format: 'd.m.Y H:i',
       inline:true,
       lang:'en'
     });
-    
+
   var open = true;
 
   $('#filter').click(function() {
