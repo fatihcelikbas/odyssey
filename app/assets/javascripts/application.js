@@ -26,10 +26,8 @@ toastr.options = {
     "timeOut": "2000"
 }
 
-<script>
   $('#stars').raty({
     path: '/assets',
     scoreName: 'guide_review[star]',
     score: 1
   });
-</script>
