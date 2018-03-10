@@ -11,14 +11,19 @@
       <%= link_to "Odyssey", root_path, class: "navbar-brand"%>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      
+
       <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control",  id: "autolocation" %>
           </div>
+          <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+              <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
+            </div>
+          </div>
       <% end %>
-      
+
       <ul class="nav navbar-nav navbar-right">
         <li>
           <button class="btn btn-form btn-small">
@@ -26,13 +31,13 @@
           </button>
         </li>
         <% if (!traveler_signed_in?) %>
-        
+
             <li><%= link_to "Login", new_traveler_session_path %></li>
             <li><%= link_to "Sign Up", new_traveler_registration_path %></li>
-            
+
         <% else %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                   role="button" aria-haspopup="true" aria-expanded="false">
                   <%= image_tag avatar_url(current_traveler), class: "img-circle avatar-small" %>&nbsp;
                   <%= current_traveler.firstname %> <span class="caret"></span>
@@ -54,7 +59,7 @@
     </div><!--/.nav-collapse -->
   </div>
 </nav>
-    
+
 <script>
   $(function() {
     $("#autolocation").geocomplete();
