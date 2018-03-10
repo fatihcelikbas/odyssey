@@ -25,9 +25,3 @@ toastr.options = {
     "positionClass": "toast-top-left",
     "timeOut": "2000"
 }
-
-  $('#stars').raty({
-    path: '/assets',
-    scoreName: 'guide_review[star]',
-    score: 1
-  });
