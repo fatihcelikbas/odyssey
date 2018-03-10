@@ -15,8 +15,12 @@
       <div id="navbar" class="navbar-collapse collapse">
       <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
           <div class="form-group">
-            <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control",  id: "autolocation" %>
-            <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
+            <div class="col-md-2">
+              <%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control",  id: "autolocation" %>
+            </div>
+            <div class="col-md-2">
+              <%= submit_tag "Search", class: "btn btn-normal" %>
+            </div>
           </div>
       <% end %>
 
