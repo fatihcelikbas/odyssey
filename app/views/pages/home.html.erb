@@ -34,8 +34,11 @@
 </div>
 
 <script>
-
   $(function() {
+    $('#start_date').datetimepicker({
+      format: 'd.m.Y H:i',
+      lang:'en'
+    });
     $("#autolocation").geocomplete();
   })
 </script>
