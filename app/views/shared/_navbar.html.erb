@@ -26,9 +26,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <button class="btn btn-form btn-small">
-            <%= link_to "Become a guide!", new_tour_path, style: "color: white; text_decoration: none;" %>
-          </button>
+            <%= button_to "Become a guide!", new_tour_path, class: "btn btn-form btn-small", :method => :get%>
         </li>
         <% if (!traveler_signed_in?) %>
 

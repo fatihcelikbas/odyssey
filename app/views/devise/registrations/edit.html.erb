@@ -1,14 +1,13 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <ul class="sidebar-list">
       <li class="sidebar-item"><%= link_to "Edit Profile", edit_traveler_registration_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Profile Picture", edit_traveler_registration_path, class: "sidebar-link active" %></li>
     </ul>
-    <br/>
-    <%= link_to "View My Profile", traveler_path(current_traveler.id), class: "btn btn-default" %>
   </div>
   <div class="col-md-9 text-center">
     <div class="panel panel-default">
-      <div class="panel-heading">Your Profile</div>
+      <div class="panel-heading">Edit Profile</div>
       <div class="panel body">
         <div class="container">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

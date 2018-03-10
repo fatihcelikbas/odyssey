@@ -39,10 +39,8 @@
 
 <%= form_for @tour do |f| %>
   <%= f.hidden_field :active, value: true %>
-  <%= f.submit "Save", id: "save_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= f.submit "Publish Tour", id: "save_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
 <% end %>
 
-<br/>
-<%= link_to_if(!is_ready, "View Tour", listing_tour_path(@tour), id: "view_button", class: "btn btn-normal btn-block" ) do
-    link_to "View Tour", tour_path(@tour), id: "view_button", class: "btn btn-normal btn-block" 
-    end %>
+<!-- <br/>
+<%= link_to "View Tour", tour_path(@tour), id: "view_button", class: "btn btn-normal btn-block", disabled: !is_ready %> -->
