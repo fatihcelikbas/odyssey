@@ -4,29 +4,29 @@
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      
+
       <div class="panel-heading">
         Location
       </div>
     </div>
-    
+
     <div class="panel-body">
       <div class="container">
-        
+
         <%= form_for @tour do |f| %>
-          
+
           <div class="row">
             <div class="form-group">
               <label>City</label>
                 <%= f.text_field :city, placeholder: "What is your city?", class: "form-control", required: true, id: "autoaddress" %>
             </div>
           </div>
-          
+
           <div class="text-center">
-            <%= f.submit "Save", class: "btn btn-form" %>
+            <%= f.submit "Next", class: "btn btn-form" %>
           </div>
         <% end %>
-        
+
       </div>
     </div>
   </div>

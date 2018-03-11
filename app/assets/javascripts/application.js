@@ -13,11 +13,12 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require datetimepicker
 //= require jquery-ui
 //= require toastr
 //= require cable
 //= require_tree .
+//= require moment
+//= require bootstrap-datetimepicker
 
 /*global toastr*/
 toastr.options = {

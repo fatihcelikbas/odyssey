@@ -10,8 +10,16 @@
     <div class="col-md-6">
       <%= text_field_tag :search, params[:search], placeholder: "Where will you discover next?", class: "form-control", id: "autofill" %>
     </div>
-    <div class="col-md-3">
+    <!-- <div class="col-md-3">
       <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control datetimepicker" %>
+    </div> -->
+    <div class="col-md-3">
+      <div class="input-group date form-control" id="datetimepicker2">
+        <%= text_field_tag :start_date, class:"form-control"%>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
     </div>
   </div>
   <br/><br/>
@@ -39,8 +47,9 @@
     $("#autofill").geocomplete();
   })
 
-  $('#start_date').datetimepicker({
-    format: 'd.m.Y H:i',
-    lang:'en'
-  });
+  $('#datetimepicker2').datetimepicker();
+  // $('#start_date').datetimepicker({
+  //   format: 'd.m.Y H:i',
+  //   lang:'en'
+  // });
 </script>

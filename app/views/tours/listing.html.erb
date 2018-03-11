@@ -4,16 +4,16 @@
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      
+
       <div class="panel-heading">
         Listing
       </div>
     </div>
-    
+
     <div class="panel-body">
       <div class="container">
         <%= form_for @tour do |f| %>
-      
+
           <div class="row">
             <div class="col-md-4 select">
               <div class="form-group">
@@ -22,7 +22,7 @@
                               id: "duration", prompt: "Select...", class: "form_control" %>
               </div>
             </div>
-            
+
              <div class="col-md-4 select">
               <div class="form-group">
                 <label>Max Travelers</label>
@@ -30,18 +30,18 @@
                               id: "max_persons", prompt: "Select...", class: "form_control" %>
               </div>
             </div>
-            
+
             <div class="col-md-4 select">
               <div class="form-group">
                 <label>Booking Request Type</label>
                 <%= f.select :instant, Tour.instants.map{|key, value| [key.humanize, key]}, selected: "Instant",  prompt: "Select...", class: "form_control" %>
               </div>
             </div>
-            
+
           </div>
-          
-          <div><%= f.submit "Save", class: "btn btn-normal"%></div>
-          
+
+          <div><%= f.submit "Next", class: "btn btn-normal"%></div>
+
         <% end %>
       </div>
     </div>

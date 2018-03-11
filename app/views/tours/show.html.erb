@@ -81,7 +81,7 @@
 
     </div>
     <hr/>
-    
+
     <!-- Carousel -->
     <div class="row">
 
@@ -117,7 +117,7 @@
 
     </div>
     <hr/>
-    
+
     <!-- REVIEWS -->
     <div class="row">
       <div class="col-md-12">
@@ -130,7 +130,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- GOOGLE MAP -->
     <div class="row">
 
@@ -149,7 +149,7 @@
               position: location,
               map: map
             });
-            
+
             var infoWindow = new google.maps.InfoWindow({
               content: '<div id="content"><%= image_tag @tour.cover_photo(:medium) %></div>'
             });
@@ -162,7 +162,7 @@
 
     </div>
     <hr/>
-    
+
     <!-- NEARBY TOURS -->
     <div class="row">
       <h3>Nearby Tours</h3>
@@ -181,7 +181,7 @@
       <% end %>
     </div>
   </div>
-  
+
   <!-- RIGHT PANEL -->
   <div class="col-md-4">
     <!-- RESERVATION FORM -->
@@ -195,7 +195,7 @@
     <!-- EDIT TOUR -->
     <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form" %>
   </div>
-  
+
 </div>
 
 <script>
@@ -205,4 +205,3 @@
     score: <%= @tour.average_rating %>
   });
 </script>
-

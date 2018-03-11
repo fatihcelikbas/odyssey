@@ -4,16 +4,16 @@
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      
+
       <div class="panel-heading">
         Listing
       </div>
     </div>
-    
+
     <div class="panel-body">
       <div class="container">
         <%= form_for @tour do |f| %>
-        
+
           <div class="row form-group">
             <div class="col-md-4">
               <%= f.check_box :is_outdoors%> Outdoors
@@ -25,7 +25,7 @@
               <%= f.check_box :is_foodie%> Foodie
             </div>
           </div>
-          
+
           <div class="row form-group">
             <div class="col-md-4">
               <%= f.check_box :is_daytrip%> Day Trip
@@ -38,11 +38,11 @@
             </div>
           </div>
           <br/><br/>
-          
+
           <div class="text-center">
-            <%= f.submit "Save", class: "btn btn-form" %>
+            <%= f.submit "Next", class: "btn btn-form" %>
           </div>
-          
+
         <% end %>
       </div>
     </div>
