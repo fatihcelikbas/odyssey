@@ -29,10 +29,8 @@
             <%= button_to "Become a guide!", new_tour_path, class: "btn btn-form2 btn-small", :method => :get%>
         </li>
         <% if (!traveler_signed_in?) %>
-
-            <li><%= link_to "Login", new_traveler_session_path %></li>
+            <li class="padd"><%= link_to "Login", new_traveler_session_path %></li>
             <li><%= link_to "Sign Up", new_traveler_registration_path %></li>
-
         <% else %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"

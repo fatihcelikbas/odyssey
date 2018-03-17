@@ -7,9 +7,48 @@
 @import "bootstrap";
 
 body {
+  padding-top: 60px;
+  z-index:5;
   color: #565a5c;
   background-color: #F8F8F8;
   font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  // background-position: top;
+  // background-image: image_url('homepage.jpeg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+
+}
+
+.home-back {
+  padding: 0;
+  margin-top: -10px;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: image_url('homepage.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding-bottom: 436px;
+}
+
+.tour-back {
+  margin-top: -20px;
+  padding-top: 20px;
+  background-color: #f0ead6;
+  // background-position: center;
+  // background-image: image_url('OrangePoly.png');
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  padding-bottom: 1000px;
+}
+
+@font-face {
+	font-family: 'Unicorn Scribbles';
+	src: url(/assets/Unicorn_Scribbles.otf);
+}
+
+unicorn {
+  font-family: "Unicorn Scribbles";
+  font-size: 40px;
 }
 
 a {
@@ -31,12 +70,20 @@ a {
 // NAVBARS
 .navbar-default {
   background-color: #FFFFFF;
+  position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    // overflow: hidden;
 }
 
 .navbar-default .navbar-brand {
   color: #ffa425;
   font-size: 2em;
   font-weight: 400;
+}
+
+.padd {
+  padding-bottom: 8px;
 }
 
 // BUTTONS
@@ -100,6 +147,7 @@ a {
 .btn.btn-form2 {
   border: 1px solid #ffa425;
   background-color: #ffa425;
+  margin-top: 10px;
 }
 
 .btn.btn-form:active {

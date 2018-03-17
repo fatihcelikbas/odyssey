@@ -1,42 +1,44 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-      Create your Tour!
-  </div>
-  <div class="panel-body">
-    <div class="container">
-      
-      <%= form_for @tour do |f| %>
-      
-        <div class="row">
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Duration</label>
-              <%= f.select :duration, [["< 1 hour", "< 1 hour"], ["1 to 2 hours", "1 to 2 hours"], ["2 to 3 hours", "2 to 3 hours"], ["3 to 4 hours", "3 to 4 hours"], ["4 to 5 hours", "4 to 5 hours"], ["5 to 6 hours", "5 to 6 hours"], ["Day Trip", "Day Trip"]],
-                            id: "duration", prompt: "Select...", class: "form_control" %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        Create your Tour!
+    </div>
+    <div class="panel-body">
+      <div class="container">
+
+        <%= form_for @tour do |f| %>
+
+          <div class="row">
+            <div class="col-md-4 select">
+              <div class="form-group">
+                <label>Duration</label>
+                <%= f.select :duration, [["< 1 hour", "< 1 hour"], ["1 to 2 hours", "1 to 2 hours"], ["2 to 3 hours", "2 to 3 hours"], ["3 to 4 hours", "3 to 4 hours"], ["4 to 5 hours", "4 to 5 hours"], ["5 to 6 hours", "5 to 6 hours"], ["Day Trip", "Day Trip"]],
+                              id: "duration", prompt: "Select...", class: "form_control" %>
+              </div>
             </div>
-          </div>
-          
-           <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Max Travelers</label>
-              <%= f.select :max_persons, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6]],
-                            id: "max_persons", prompt: "Select...", class: "form_control" %>
+
+             <div class="col-md-4 select">
+              <div class="form-group">
+                <label>Max Travelers</label>
+                <%= f.select :max_persons, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6]],
+                              id: "max_persons", prompt: "Select...", class: "form_control" %>
+              </div>
             </div>
-          </div>
-          
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Booking Request Type</label>
-              <%= f.select :instant, Tour.instants.map{|key, value| [key.humanize, key]}, selected: "Instant",  prompt: "Select...", class: "form_control" %>
+
+            <div class="col-md-4 select">
+              <div class="form-group">
+                <label>Booking Request Type</label>
+                <%= f.select :instant, Tour.instants.map{|key, value| [key.humanize, key]}, selected: "Instant",  prompt: "Select...", class: "form_control" %>
+              </div>
             </div>
+
           </div>
-          
-        </div>
-        
-        <div><%= f.submit "Create My Tour", class: "btn btn-normal"%></div>
-        
-      <% end %>
-      
+
+          <div><%= f.submit "Create My Tour", class: "btn btn-normal"%></div>
+
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>

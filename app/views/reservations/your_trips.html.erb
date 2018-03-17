@@ -1,44 +1,46 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", tours_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
-    </ul>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Your Trips
-      </div>
-      <div class="panel-body">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><%= link_to "Your Listings", tours_path, class: "sidebar-link" %></li>
+        <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+        <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Your Trips
+        </div>
+        <div class="panel-body">
 
-        <% @trips.each do |trip| %>
-          <div class="row">
-            <div class="col-md-2">
-              <%= trip.start_date.strftime('%v at %H:%M for ' + trip.duration.to_s + ' hours') %>
-              <p><%= trip.status %></p>
-            </div>
-            <div class="col-md-2">
-              <%= link_to tour_path(trip.tour) do %>
-                <%= image_tag trip.tour.cover_photo(:thumb) %>
-              <% end %>
-            </div>
-            <div class="col-md-5">
-              <%= link_to trip.tour.title, tour_path(trip.tour)%><br/><br/>
-              <span>
-                <%= image_tag avatar_url(trip.tour.traveler), class: "img-circle avatar-small" %>
-                <%= link_to traveler_path(trip.tour.traveler) do %>
-                  <%= trip.tour.traveler.firstname + " " + trip.tour.traveler.lastname %>
+          <% @trips.each do |trip| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= trip.start_date.strftime('%v at %H:%M for ' + trip.duration.to_s + ' hours') %>
+                <p><%= trip.status %></p>
+              </div>
+              <div class="col-md-2">
+                <%= link_to tour_path(trip.tour) do %>
+                  <%= image_tag trip.tour.cover_photo(:thumb) %>
                 <% end %>
-              </span>
+              </div>
+              <div class="col-md-5">
+                <%= link_to trip.tour.title, tour_path(trip.tour)%><br/><br/>
+                <span>
+                  <%= image_tag avatar_url(trip.tour.traveler), class: "img-circle avatar-small" %>
+                  <%= link_to traveler_path(trip.tour.traveler) do %>
+                    <%= trip.tour.traveler.firstname + " " + trip.tour.traveler.lastname %>
+                  <% end %>
+                </span>
+              </div>
+              <div class="col-md-3 text-right">
+                <%= render partial: "reviews/tourist_form", locals: {reservation: trip} if trip.Approved? %>
+              </div>
             </div>
-            <div class="col-md-3 text-right">
-              <%= render partial: "reviews/tourist_form", locals: {reservation: trip} if trip.Approved? %>
-            </div>
-          </div>
-          <hr/>
-        <% end %>
+            <hr/>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

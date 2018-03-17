@@ -1,35 +1,37 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", tours_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %></li>
-    </ul>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Listings
-      </div>
-      <div class="panel-body">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><%= link_to "Your Listings", tours_path, class: "sidebar-link active" %></li>
+        <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+        <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %></li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Listings
+        </div>
+        <div class="panel-body">
 
-        <% @tours.each do |tour| %>
-          <div class="row">
-            <div class="col-md-2">
-              <%= image_tag tour.cover_photo(:thumb) %>
+          <% @tours.each do |tour| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= image_tag tour.cover_photo(:thumb) %>
+              </div>
+              <div class="col-md-5">
+                <h4><%= link_to tour.title, tour_path(tour)%></h4>
+              </div>
+              <div class="col-md-2 right">
+                <%= link_to "Update", listing_tour_path(tour), class: "btn btn-form" %>
+              </div>
+              <div class="col-md-3 right">
+                <%= link_to "", tour_path(tour), method: :delete, class: "fa fa-trash fa-2x"%>
+              </div>
             </div>
-            <div class="col-md-5">
-              <h4><%= link_to tour.title, tour_path(tour)%></h4>
-            </div>
-            <div class="col-md-2 right">
-              <%= link_to "Update", listing_tour_path(tour), class: "btn btn-form" %>
-            </div>
-            <div class="col-md-3 right">
-              <%= link_to "", tour_path(tour), method: :delete, class: "fa fa-trash fa-2x"%>
-            </div>
-          </div>
-          <hr/>
-        <% end %>
+            <hr/>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
