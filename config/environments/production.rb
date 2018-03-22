@@ -86,15 +86,15 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.url = "wss://odyssey-demo.herokuapp.com/cable/"
+  config.action_cable.url = "wss://odyssey1.herokuapp.com/cable/"
   config.action_cable.allowed_request_origins = [
-    'https://action-cable-odyssey-demo.herokuapp.com', 'http://action-cable-odyssey-demo.herokuapp.com']
+    'https://action-cable-odyssey1.herokuapp.com', 'http://action-cable-odyssey1.herokuapp.com']
 
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "https://odyssey-demo.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: "https://odyssey1.herokuapp.com/" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
