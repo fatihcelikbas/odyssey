@@ -33,7 +33,10 @@
               <div class="panel-body">
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-language fa-lg icon-blue"></i>&nbsp&nbspSpeaks English, Spanish, German, and Swahili</td>
+                        <td><i class="fa fa-language fa-lg icon-blue"></i>&nbsp&nbspSpeaks:
+                          <%= @traveler.languages.compact.split("").flatten.join(", ").html_safe %>
+                        </td>
+
                       </div>
                       <div class="col-md-6">
                         <td><i class="fa fa-music fa-lg icon-blue"></i>&nbsp&nbspLoves Radiohead and The Killers</td>
