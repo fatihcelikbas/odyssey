@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319052423) do
+ActiveRecord::Schema.define(version: 20180322032445) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
@@ -117,6 +117,10 @@ ActiveRecord::Schema.define(version: 20180319052423) do
     t.string "phone_number"
     t.text "description"
     t.string "languages", default: "{English}"
+    t.string "gender"
+    t.string "occupation"
+    t.string "education"
+    t.string "hometown"
     t.index ["confirmation_token"], name: "index_travelers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_travelers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_travelers_on_reset_password_token", unique: true

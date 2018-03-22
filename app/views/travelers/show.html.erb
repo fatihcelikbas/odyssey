@@ -18,7 +18,7 @@
                     <% if @traveler.provider %>
                         <li>Facebook<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
                     <% end %>
-                    <% if @traveler.phone_number %>
+                    <% if !(@traveler.phone_number == "") && !@traveler.phone_number.nil?%>
                         <li>Phone Number<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
                     <% end %>
                   </ul>
@@ -39,23 +39,49 @@
 
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-music fa-lg icon-blue"></i>&nbsp&nbspLoves Radiohead and The Killers</td>
+                        <td><i class="fa fa-briefcase fa-lg icon-blue"></i>
+                          <% if !(@traveler.occupation == "") && !@traveler.occupation.nil?%>
+                            <%=@traveler.occupation%>
+                          <% else %>
+                            Occupation not yet specified
+                          <% end %>
+                        </td>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-car fa-lg icon-blue"></i>&nbspHas a car</td>
+                        <td><i class="fa fa-home fa-lg icon-blue"></i>
+                          <% if !(@traveler.hometown == "") && !@traveler.hometown.nil?%>
+                            <%=@traveler.hometown%>
+                          <% else %>
+                            Hometown not yet specified
+                          <% end %>
+                        </td>
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-dribbble fa-lg icon-blue"></i>&nbsp&nbspLikes Sports</td>
+                        <td><i class="fa fa-book fa-lg icon-blue"></i>
+                          <% if !(@traveler.education == "") && !@traveler.education.nil?%>
+                            <%=@traveler.education%>
+                          <% else %>
+                            Education not yet specified
+                          <% end %>
+                        </td>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-beer fa-lg icon-blue"></i>&nbsp&nbspBar Scene</td>
+                        <td><i class="fa fa-user-circle-o fa-lg icon-blue"></i>&nbspMember since
+                          <%=@traveler.created_at.year%>
+                        </td>
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-transgender-alt fa-lg icon-blue"></i>&nbspMale</td>
+                        <td><i class="fa fa-transgender-alt fa-lg icon-blue"></i>
+                        <% if !(@traveler.gender == "") && !@traveler.gender.nil?%>
+                          <%=@traveler.gender%>
+                        <% else %>
+                          Gender not yet specified
+                        <% end %>
+                        </td>
                       </div>
                     </div>
                </div>
