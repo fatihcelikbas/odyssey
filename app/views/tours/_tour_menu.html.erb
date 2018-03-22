@@ -28,7 +28,7 @@
     </li>
     <li class="sidebar-item">
       <%= link_to "Location", location_tour_path, class: "sidebar-link active" %>
-      <% if !@tour.city.blank? && !@tour.description.blank? %>
+      <% if !@tour.city.blank? %>
         <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
       <% end %>
     </li>

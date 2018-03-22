@@ -33,6 +33,14 @@
             </div>
 
           </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>City</label>
+                  <%= f.text_field :city, placeholder: "What is your city?", class: "form-control", required: true, id: "autoaddress" %>
+            </div>
+            </div>
+          </div>
 
           <div><%= f.submit "Create My Tour", class: "btn btn-normal"%></div>
 
