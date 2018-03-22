@@ -9,8 +9,6 @@ class Traveler < ApplicationRecord
   has_many :reservations
   has_many :tourist_reviews, class_name: "TouristReview", foreign_key: "tourist_id"
   has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id"
-  # accepts_nested_attributes_for :languages
-  serialize :languages
 
     validates :firstname, presence: true, length: {maximum: 50}
     validates :lastname, presence: true, length: {maximum: 50}
