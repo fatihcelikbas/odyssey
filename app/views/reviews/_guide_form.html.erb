@@ -16,7 +16,7 @@
       <div class="modal-body">
         <%= form_for current_traveler.guide_reviews.new do |f| %>
           <div class="form-group text-center">
-              <div id="stars"></div>
+              <div id="stars_<%=reservation_id%>"></div>
           </div>
 
           <div class="form-group">
@@ -39,7 +39,7 @@
 </div>
 
 <script>
-  $('#stars').raty({
+  $('#stars_<%=reservation_id%>').raty({
     path: '/assets',
     scoreName: 'guide_review[star]',
     score: 1
