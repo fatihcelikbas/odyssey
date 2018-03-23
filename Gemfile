@@ -47,3 +47,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 gem 'ransack', '~> 1.7'
 gem 'jquery-ui-rails', '~> 5.0'
+
+gem 'bootstrap-select-rails'

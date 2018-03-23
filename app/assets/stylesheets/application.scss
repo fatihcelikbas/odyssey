@@ -2,6 +2,8 @@
 *=require toastr
 *= require bootstrap-datetimepicker
 *= require jquery-ui
+*= require bootstrap-select
+
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -427,4 +429,9 @@ a {
 img.resize {
   height: 150px;
   width: 150px;
+}
+
+.bootstrap-select .btn{
+  margin-top: -3px;
+  border-color: #00c2cb;
 }
