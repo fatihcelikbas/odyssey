@@ -3,7 +3,7 @@ class Conversation < ApplicationRecord
     belongs_to :recipient, foreign_key: :recipient_id, class_name: "Traveler"
 
     has_many :messages, dependent: :destroy
-    validates_uniqueness_of :sender_id, :recipient_id
+    validates :sender_id, :uniqueness => {:scope => :recipient_id}
 
     scope :involving, -> (traveler) {
         where("conversations.sender_id = ? OR conversations.recipient_id = ?", traveler.id, traveler.id)
