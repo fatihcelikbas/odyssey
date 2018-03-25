@@ -40,10 +40,12 @@ gem 'geocoder', '~> 1.4'
 
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.8'
+gem 'redis', '~> 3.0'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-datetimepicker'
-end
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 gem 'ransack', '~> 1.7'
 gem 'jquery-ui-rails', '~> 5.0'
+
+gem 'bootstrap-select-rails'

@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -86,14 +86,16 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.url = "ws://https://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/cable"
+  config.action_cable.url = "wss://odyssey1.herokuapp.com/cable/"
+  config.action_cable.allowed_request_origins = [
+    'https://action-cable-odyssey1.herokuapp.com', 'http://action-cable-odyssey1.herokuapp.com']
 
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
-  config.action_mailer.default_url_options = { host: 'https://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/'}
-  
+
+  config.action_mailer.default_url_options = { host: "https://odyssey1.herokuapp.com/" }
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mailgun.org',

@@ -5,11 +5,18 @@
   </div>
   <div class="panel-body">
     <%= form_for([@tour, @tour.reservations.new]) do |f| %>
-      <div class="row">
-        <%= f.text_field :start_date, readonly: true, placeholder: "Start Date"%>
+      <div class="input-group date" id="datetimepicker">
+        <!-- <%= f.text_field :start_date, readonly: true, placeholder: "Start Date"%> -->
+        <%= f.text_field :start_date, class:"form-control"%>
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
       </div>
+      <!-- <div class='input-group date' id='datetimepicker2'>
+        <%= f.text_field :start_date, readonly: true, placeholder: "Start Date"%>
+      </div> -->
 
-      <h4 class="message-alert text-center"><span id="message"></span></h4>
+      <!-- <h4 class="message-alert text-center"><span id="message"></span></h4>
       <div id="preview" style="display: none">
         <table class="reservation-table">
           <tbody>
@@ -27,21 +34,27 @@
             </tr>
           </tbody>
         </table>
+      </div> -->
+      <div class="row">
+        <% if @tour.Insant? %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block-reservations"%>
+        <% else %>
+          <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block"%>
+        <% end %>
       </div>
-      
-      <% if @tour.Insant? %>
-        <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block"%>
-      <% else %>
-        <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block"%>
-      <% end %>
     <% end %>
   </div>
 </div>
 
 <script>
+$(function () {
+    $('#datetimepicker').datetimepicker({
+      format: 'DD-MM-YYYY HH:mm:ss'
+    });
+});
   $(function() {
     unavailableDates = [];
-    
+
     $.ajax({
       url: '<%= preload_tour_path(@tour) %>',
       dateTyp: 'json',
@@ -59,11 +72,6 @@
       }
     });
     console.log("hello3");
-    
-    $('#reservation_start_date').datetimepicker({
-      format: 'd.m.Y H:i',
-      inline:true,
-      lang:'en'
-    });
+
   });
 </script>

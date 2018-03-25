@@ -1,45 +1,58 @@
-<div class="row">
-  <div class="col-md-7 banner">
-    <h1><span class="text-red">Odyssey</span> Experience a city like a local, with a local.</h1>
+<div class="home-back">
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-7 banner"> -->
+        <h1 align="center">Your friends are waiting for you</h1>
+      <!-- </div> -->
+    </div>
+
+
+    <%= form_tag search_path, method: :get do %>
+      <div class="row">
+        <div class="center">
+          <%= text_field_tag :search, params[:search], placeholder: "Where will you discover next?", class: "form-control", id: "autofill" %>
+        </div>
+        <!-- <div class="col-md-3">
+          <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control datetimepicker" %>
+        </div> -->
+        <!-- <div class="col-md-3">
+          <div class="input-group date form-control" id="datetimepicker2">
+            <%= text_field_tag :start_date%>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div> -->
+      </div>
+      <br/><br/>
+
+      <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
-
-<%= form_tag search_path, method: :get do %>
-  <div class="row">
-    <div class="col-md-6">
-      <%= text_field_tag :search, params[:search], placeholder: "Where will you discover next?", class: "form-control", id: "autolocation" %>
-    </div>
-    <div class="col-md-3">
-      <%= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control datetimepicker" %>
-    </div>
-  </div>
-  <br/><br/>
-
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <%= submit_tag "Search", class: "btn btn-normal btn-block" %>
-    </div>
-  </div>
-<% end %>
-
-<br/><hr/><br/>
-
 <!-- Tours -->
-<div><h3>Tours</h3></div>
-<br/>
-
-<div class="row">
-  <%= render partial: "tours/tours_list", locals: {tours: @tours}%> 
+<div class="tour-back">
+  <p align="center"><unicorn>Tours</unicorn></p>
+  <br/>
+  <%= render partial: "tours/tours_list", locals: {tours: @tours}%>
 </div>
 
 <script>
-  $('#start_date').datetimepicker({
-    format: 'd.m.Y H:i',
-    lang:'en'
-  });
 
   $(function() {
-    $("#autolocation").geocomplete();
+    $("#autofill").geocomplete();
   })
+
+  $('#datetimepicker2').datetimepicker({
+    dayViewHeaderFormat: 'DD-MM-YYYY HH:mm:ss'
+  });
+  // $('#start_date').datetimepicker({
+  //   format: 'd.m.Y H:i',
+  //   lang:'en'
+  // });
 </script>

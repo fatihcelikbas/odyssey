@@ -1,59 +1,102 @@
-<div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Edit Profile", edit_traveler_registration_path, class: "sidebar-link active" %></li>
-    </ul>
-    <br/>
-    <%= link_to "View My Profile", traveler_path(current_traveler.id), class: "btn btn-default" %>
-  </div>
-  <div class="col-md-9 text-center">
-    <div class="panel panel-default">
-      <div class="panel-heading">Your Profile</div>
-      <div class="panel body">
-        <div class="container">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= render 'shared/devisemes' %>
-        
-          <div class="form_group">
-            <%= f.text_field :firstname, autofocus: true, placeholder: "First Name", class: "form-control", autocomplete: "on" %>
-          </div>  
-          
-          <div class="form_group">
-            <%= f.text_field :lastname, autofocus: true, placeholder: "Last Name", class: "form-control", autocomplete: "on" %>
-          </div>
-          
-          <div class="form_group">
-            <%= f.text_field :phone_number, autofocus: true, placeholder: "Phone Number", class: "form-control", autocomplete: "on" %>
-          </div>  
-          
-          
-          <div class="form_group">
-            <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", autocomplete: "email" %>
-          </div>
-          
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="sidebar-list">
+        <li class="sidebar-item"><%= link_to "Edit Profile", edit_traveler_registration_path, class: "sidebar-link active" %></li>
+        <li class="sidebar-item"><%= link_to "Profile Picture", edit_traveler_registration_path, class: "sidebar-link active" %></li>
+      </ul>
+    </div>
+    <div class="col-md-9 text-center">
+      <div class="panel panel-default">
+        <div class="panel-heading">Edit Profile</div>
+        <div class="panel body">
+          <div class="container">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render 'shared/devisemes' %>
+
+            <div class="form-group row-top">
+              <%= f.text_field :firstname, autofocus: true, placeholder: "First Name", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :lastname, autofocus: true, placeholder: "Last Name", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :phone_number, autofocus: true, placeholder: "Phone Number", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", autocomplete: "email" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.text_field :gender, autofocus: true, placeholder: "Gender", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :occupation, autofocus: true, placeholder: "Occupation", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :education, autofocus: true, placeholder: "Education", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :hometown, autofocus: true, placeholder: "Hometown", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.select :languages, options_for_select([
+                ["Afrikanns", "Afrikanns"],["Albanian", "Albanian"],
+                ["Arabic", "Arabic"], ["Armenian", "Armenian"], ["Basque", "Basque"],
+                ["Bengali", "Bengali"], ["Bulgarian", "Bulgarian"], ["Catalan", "Catalan"],
+                ["Cambodian", "Cambodian"], ["Chinese (Mandarin)", "Chinese (Mandarin)"], ["Croation", "Croation"],
+                ["Czech", "Czech"], ["Danish", "Danish"], ["Dutch", "Dutch"], ["English", "English"],
+                ["Estonian", "Estonian"], ["Fiji", "Fiji"], ["Finnish", "Finnish"],
+                ["French", "French"], ["Georgian", "Georgian"], ["German", "German"],
+                ["Greek", "Greek"], ["Gujarati", "Gujarati"], ["Hebrew", "Hebrew"], ["Hindi", "Hindi"],
+                ["Hungarian", "Hungarian"], ["Icelandic", "Icelandic"],
+                ["Indonesian", "Indonesian"], ["Irish", "Irish"], ["Italian", "Italian"], ["Japanese", "Japanese"],
+                ["Javanese", "Javanese"], ["Korean", "Korean"], ["Latin", "Latin"],
+                ["Latvian", "Latvian"], ["Lithuanian", "Lithuanian"], ["Macedonian", "Macedonian"],
+                ["Malay", "Malay"], ["Malayalam", "Malayalam"], ["Maltese", "Maltese"],
+                ["Maori", "Maori"], ["Marathi", "Marathi"], ["Mongolian", "Mongolian"], ["Nepali", "Nepali"],
+                ["Norwegian", "Norwegian"], ["Persian", "Persian"], ["Polish", "Polish"],
+                ["Portuguese", "Portuguese"], ["Punjabi", "Punjabi"], ["Quechua", "Quechua"],
+                ["Romanian", "Romanian"], ["Russian", "Russian"], ["Samoan", "Samoan"],
+                ["Serbian", "Serbian"], ["Slovak", "Slovak"], ["Slovenian", "Slovenian"],
+                ["Spanish", "Spanish"], ["Swahili", "Swahili"], ["Swedish", "Swedish"],
+                ["Tamil", "Tamil"], ["Tatar", "Tatar"], ["Telugu", "Telugu"], ["Thai", "Thai"],
+                ["Tibetan", "Tibetan"], ["Tonga", "Tonga"], ["Turkish", "Turkish"],
+                ["Ukranian", "Ukranian"], ["Urdu", "Urdu"], ["Uzbek", "Uzbek"], ["Vietnamese", "Vietnamese"],
+                ["Welsh", "Welsh"], ["Xhosa", "Xhosa"]]), {}, {class: "form-group form-control selectpicker", "multiple" => "true", "title" => "&nbsp&nbsp&nbsp&nbspWhat languages do you speak?", "data-size" => 5} %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_area :description, rows: 5, cols: 25, autofocus: true, placeholder: "Description", class: "form-control", autocomplete: "on" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "New Password (Optional)", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Save", class: "btn btn-primary" %>
+            </div>
           <% end %>
-          
-          <div class="form_group">
-            <%= f.text_area :description, rows: 5, cols: 25, autofocus: true, placeholder: "Description", class: "form-control", autocomplete: "on" %>
           </div>
-          
-          <div class="form_group">
-            <%= f.password_field :password, autocomplete: "off", placeholder: "New Password (Optional)", class: "form-control" %>
-          </div>
-        
-          <div class="form_group">
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
-          </div>
-        
-          <div class="actions">
-            <%= f.submit "Save", class: "btn btn-primary" %>
-          </div>
-        <% end %>
         </div>
       </div>
+
     </div>
-    
   </div>
 </div>

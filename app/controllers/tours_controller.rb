@@ -10,6 +10,8 @@ class ToursController < ApplicationController
 
   def new
     @tour = current_traveler.tours.build
+    # redirect_to listing_tour_path(@tour)
+    #Ideally this^ but this path requires a tour id number
   end
 
   #create a new tour

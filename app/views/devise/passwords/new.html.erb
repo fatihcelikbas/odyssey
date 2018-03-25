@@ -5,15 +5,14 @@
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render 'shared/devisemes' %>
-    
-      <div class="form_group">
+
+      <div class="form-group">
         <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", autocomplete: "off" %>
       </div>
-    
+
       <div class="actions">
         <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
 </div>
-
