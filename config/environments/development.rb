@@ -71,7 +71,7 @@ Rails.application.configure do
     path: ':class/:attachment/:id/:style/:filename',
     s3_host_name: 's3-us-east-2.amazonaws.com',
     s3_credentials: {
-      bucket: 'odysseydemo',
+      bucket: 'odysseyapi',
       access_key_id: 'AKIAJP5HFBLMMQDP6PRQ',
       secret_access_key: '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',
       s3_region: 'us-east-2'
