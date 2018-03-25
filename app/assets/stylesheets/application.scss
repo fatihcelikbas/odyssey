@@ -23,13 +23,16 @@ body {
 
 .home-back {
   padding: 0;
-  margin-top: -10px;
   background-position: center;
   background-attachment: fixed;
   background-image: image_url('homepage.jpeg');
   background-repeat: no-repeat;
   background-size: 100%;
   padding-bottom: 463px;
+}
+
+.hometext {
+  margin-top: 90px;
 }
 
 .tour-back {
@@ -40,7 +43,7 @@ body {
   // background-image: image_url('OrangePoly.png');
   // background-repeat: no-repeat;
   // background-size: 100% 100%;
-  padding-bottom: 1000px;
+  padding-bottom: 400px;
 }
 
 @font-face {
@@ -110,6 +113,9 @@ a {
   margin-top: 15px;
 }
 
+.extraPadding {
+  margin-right: 10px;
+}
 .btn {
   color: #fff;
   border-radius: 5px;
@@ -407,6 +413,14 @@ a {
   top: 0;
   right: 0;
   width: 450px;
+  height: 100%;
+}
+
+#mapright {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 518px;
   height: 100%;
 }
 

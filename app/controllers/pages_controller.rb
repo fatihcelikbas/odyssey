@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     # STEP 1, save the search
     if params[:search].present? && params[:search].strip != ""
       session[:loc_search] = params[:search]
+      @location = session[:loc_search]
     end
 
     # STEP 2, find nearby tours

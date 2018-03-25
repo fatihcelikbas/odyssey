@@ -2,6 +2,7 @@
   <div class="row">
       <div class="col-md-3">
           <div class="center">
+            <br/>
               <%= image_tag avatar_url(@traveler), class: "img-circle avatar-full"%>
               <% if current_traveler && current_traveler != @traveler %>
                   <%= link_to "Send Message", conversations_path(sender_id: current_traveler.id, recipient_id: @traveler.id), method: :post, class: "btn btn-default" %>
@@ -34,7 +35,9 @@
                     <div class="row">
                       <div class="col-md-6">
                         <td><i class="fa fa-language fa-lg icon-blue"></i>&nbsp&nbspSpeaks:
-                          <%= @traveler.languages.compact.split("").flatten.join(", ").html_safe %>
+                          <% if @traveler.languages %>
+                            <%= @traveler.languages.compact.split("").flatten.join(", ").html_safe %>
+                          <% end %>
                         </td>
 
                       </div>
@@ -86,8 +89,12 @@
                     </div>
                </div>
           </div>
-          <div class="description row-space-3">
-              <%= @traveler.description %>
+          
+          <div class="panel panel-default">
+              <div class="panel-heading">Description</div>
+              <div class="panel-body">
+                  <%= @traveler.description %>
+            </div>
           </div>
 
           <h4>Listings (<%= @tours.length %>)</h4><br/>
