@@ -2,12 +2,12 @@ class PagesController < ApplicationController
   def home
     @tours = Tour.where(active: true).limit(3)
   end
-  
+
   def search
     # STEP 1, save the search
     if params[:search].present? && params[:search].strip != ""
       session[:loc_search] = params[:search]
-      @location = session[:loc_search]
+      @location = Geocoder.coordinates(session[:loc_search])
     end
 
     # STEP 2, find nearby tours
