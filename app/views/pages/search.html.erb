@@ -105,13 +105,13 @@
     </div>
 
 
-    <div id="right">
+    <div id="mapright">
       <!-- GOOGLE MAP -->
       <div id="map" style="width: 100%; height: 100%"></div>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0zDCpjAQe3f2xk_BRtnyMLWb9Bo1mQH4"></script>
       <script>
           function initialize(tours) {
-            var location = {lat: 40.1792, lng: 44.4991};
+            var location = {lat: location.latitude, lng: location.longitude};
 
             if (tours.length > 0) {
               location = {lat: tours[0].latitude, lng: tours[0].longitude};
