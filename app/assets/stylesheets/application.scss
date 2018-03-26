@@ -38,12 +38,23 @@ body {
 .tour-back {
   margin-top: -20px;
   padding-top: 20px;
-  background-color: #f0ead6;
+  background-color: #ffa425;
   // background-position: center;
   // background-image: image_url('OrangePoly.png');
   // background-repeat: no-repeat;
   // background-size: 100% 100%;
   padding-bottom: 400px;
+}
+
+.tour-video {
+  margin-top: -20px;
+  padding-top: 20px;
+  background-color: #ffffff;
+  // background-position: center;
+  // background-image: image_url('OrangePoly.png');
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  padding-bottom: 100px;
 }
 
 @font-face {
@@ -57,7 +68,7 @@ unicorn {
 }
 
 a {
-  color: #00c2cb;
+  color: #000;
 }
 
 .container {
