@@ -15,6 +15,7 @@ one:
   is_museums: false
   active: false
   traveler: one
+  traveler_id: 1
 
 two:
   price: 1
@@ -31,3 +32,4 @@ two:
   is_museums: false
   active: false
   traveler: two
+  traveler_id: 2
