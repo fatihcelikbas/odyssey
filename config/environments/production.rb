@@ -94,7 +94,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "https://odyssey1.herokuapp.com/" }
+  # config.action_mailer.default_url_options = { host: "https://odyssey1.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -105,7 +106,7 @@ Rails.application.configure do
     user_name: 'postmaster@sandbox4fa85edbd96f4752a39c81ebe8cfcb75.mailgun.org',
     password: '294e7738bae1603bdbbfdca626ca6be3-fab099d8-0e272faf'
   }
-  
+
   config.paperclip_defaults = {
     storage: :s3,
     path: ':class/:attachment/:id/:style/:filename',
@@ -117,5 +118,5 @@ Rails.application.configure do
       s3_region: 'us-east-2'
     }
   }
-  
+
 end

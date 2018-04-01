@@ -3,15 +3,15 @@
 one:
   comment: MyText
   star: 1
-  reservation: one
-  tourist: one
-  guide: one
-  type: 
+  reservation_id: one
+  tourist_id: one
+  guide_id: one
+  type:
 
 two:
   comment: MyText
   star: 1
-  reservation: two
-  tourist: two
-  guide: two
-  type: 
+  reservation_id: two
+  tourist_id: two
+  guide_id: two
+  type:

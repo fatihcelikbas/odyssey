@@ -1,7 +1,18 @@
 require 'test_helper'
 
 class PhotoTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @photo = photos(:one)
+  end
+
+  test "photo belongs to tour" do
+    assert_not_nil @photo.tour
+  end
+
+  test 'invalid without tour' do
+    @photo.tour = nil
+    refute @photo.valid?, 'photo is valid without a tour'
+    assert_not_nil @photo.errors[:tour], 'no validation error for tour present'
+  end
 end

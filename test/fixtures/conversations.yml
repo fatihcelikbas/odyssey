@@ -2,8 +2,8 @@
 
 one:
   sender_id: 1
-  recipient_id: 1
+  recipient_id: 2
 
 two:
-  sender_id: 1
-  recipient_id: 1
+  sender_id: 3
+  recipient_id: 4
