@@ -9,6 +9,7 @@ class TravelerTest < ActiveSupport::TestCase
   test "traveler has firstname" do
     assert_not_nil @traveler.firstname
   end
+  
   test "traveler has lastname" do
     assert_not_nil @traveler.lastname
   end

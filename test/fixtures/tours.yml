@@ -31,9 +31,4 @@ two:
   is_landmarks: false
   is_museums: false
   active: false
-<<<<<<< HEAD
-  traveler: two
-  traveler_id: 2
-=======
   traveler: one
->>>>>>> cb69d17e65093227d7f8bfa3da98a04864288585

@@ -15,6 +15,7 @@ class TourControllerTest < ActionDispatch::IntegrationTest
     assert_equal 200, status
     assert_equal "/", path
   end
+  
   #Tests without traveler signed in
   test "should not get index if not signed in" do
     get tours_url

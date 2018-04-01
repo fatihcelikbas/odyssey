@@ -17,7 +17,8 @@ class ReservationsController < ApplicationController
       @reservation.duration = tour.duration 
       #@reservation.save
       if @reservation.save
-        if tour .Request?
+        # there was an extra space before .Request
+        if tour.Request?
           flash[:notice] = "Request sent successfully!"
         else
           @reservation.Approved!
@@ -31,7 +32,7 @@ class ReservationsController < ApplicationController
     redirect_to tour
   end
   
-   def your_trips
+  def your_trips
     @trips = current_traveler.reservations.order(start_date: :asc)
   end
   
