@@ -1,9 +1,16 @@
 require 'test_helper'
 
 class TravelerTest < ActiveSupport::TestCase
-  
+
   def setup
-    @traveler = Traveler.new(:one)
+    @traveler = travelers(:one)
+  end
+
+  test "traveler has firstname" do
+    assert_not_nil @traveler.firstname
+  end
+  test "traveler has lastname" do
+    assert_not_nil @traveler.lastname
   end
   
   test 'invalid without firstname' do
@@ -17,12 +24,10 @@ class TravelerTest < ActiveSupport::TestCase
     refute @traveler.valid?, 'traveler is valid without a lastname'
     assert_not_nil @traveler.errors[:lastname], 'no validation error for lastname present'
   end
-  
-  test '#tours' do
+
+  test 'traveler has tours' do
     assert_equal 2, @traveler.tours.size
   end
-  
-  
-  
-  
+
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322032445) do
+ActiveRecord::Schema.define(version: 20180401055311) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
@@ -84,13 +84,13 @@ ActiveRecord::Schema.define(version: 20180322032445) do
     t.boolean "is_landmarks"
     t.boolean "is_museums"
     t.boolean "active"
-    t.integer "guide_id"
+    t.integer "traveler_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
     t.integer "instant", default: 1
-    t.index ["guide_id"], name: "index_tours_on_guide_id"
+    t.index ["traveler_id"], name: "index_tours_on_traveler_id"
   end
 
   create_table "travelers", force: :cascade do |t|
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20180322032445) do
     t.string "image"
     t.string "phone_number"
     t.text "description"
-    t.string "languages", default: "{English}"
+    t.string "languages", default: "{}"
     t.string "gender"
     t.string "occupation"
     t.string "education"

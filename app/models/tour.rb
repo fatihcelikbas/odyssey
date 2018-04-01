@@ -14,7 +14,7 @@ class Tour < ApplicationRecord
   #validates :price, presence: true
   #validates :title, presence: true
   #validates :description, presence: true
-  #validates :city, presence: true
+  validates :city, presence: true
 
   def cover_photo(size)
     if self.photos.length > 0
