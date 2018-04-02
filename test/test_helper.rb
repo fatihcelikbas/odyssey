@@ -3,7 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :conversations, :messages, :photos, :reservations, :tours, :travelers
+  fixtures :conversations, :messages, :photos, :reservations, :tours, :travelers, :reviews
   def sign_in(traveler)
     post traveler_session_path \
       'traveler[email]'    => traveler.email,
