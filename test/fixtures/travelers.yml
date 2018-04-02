@@ -12,5 +12,10 @@ one:
   confirmed_at: 2016-01-02 08:31:23
   confirmation_sent_at: 2016-01-02 08:30:59
 
-two: {}
-# column: value
+two: 
+  firstname: Bob
+  lastname: Miller
+  email: example1@email.com
+  encrypted_password: <%= Devise::Encryptor.digest(Traveler, 'password') %>
+  confirmed_at: 2016-01-02 08:31:24
+  confirmation_sent_at: 2016-01-02 08:30:58

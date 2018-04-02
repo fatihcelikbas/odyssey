@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  comment: MyText
+  comment: My guide was terrible
   star: 1
   reservation_id: one
   tourist_id: one
-  guide_id: two
-  type:
+  guide_id: one
+  type: TouristReview
 
 two:
-  comment: MyText
+  comment: My tourist was terrible
   star: 1
   reservation_id: two
   tourist_id: two
-  guide_id: one
-  type:
+  guide_id: two
+  type: GuideReview
