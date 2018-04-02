@@ -4,7 +4,7 @@ one:
   price: 1
   duration: 1
   max_persons: 1
-  title: MyString
+  title: MyString1
   description: MyString
   city: MyString
   is_outdoors: false
@@ -21,7 +21,7 @@ two:
   price: 1
   duration: 1
   max_persons: 1
-  title: MyString
+  title: MyString2
   description: MyString
   city: MyString
   is_outdoors: false

@@ -15,7 +15,7 @@ class TourControllerTest < ActionDispatch::IntegrationTest
     assert_equal 200, status
     assert_equal "/", path
   end
-  
+
   #Tests without traveler signed in
   test "should not get index if not signed in" do
     get tours_url
@@ -59,12 +59,5 @@ class TourControllerTest < ActionDispatch::IntegrationTest
     get location_tour_url(@tour)
     assert_response :success
   end
-
-  # test "should get update" do
-  #   sign_in(@traveler)
-  #   @tour = @traveler.tours.first
-  #   patch tour_url(@tour)
-  #   assert_response :success
-  # end
 
 end

@@ -7,11 +7,11 @@ class PhotoTest < ActiveSupport::TestCase
   end
 
   test "photo belongs to tour" do
-    assert_not_nil @photo.tour
+    assert_not_nil @photo.tour_id
   end
 
   test 'invalid without tour' do
-    @photo.tour = nil
+    @photo.tour_id = nil
     refute @photo.valid?, 'photo is valid without a tour'
     assert_not_nil @photo.errors[:tour], 'no validation error for tour present'
   end
