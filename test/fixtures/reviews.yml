@@ -5,7 +5,7 @@ one:
   star: 1
   reservation_id: one
   tourist_id: one
-  guide_id: one
+  guide_id: two
   type:
 
 two:
@@ -13,5 +13,5 @@ two:
   star: 1
   reservation_id: two
   tourist_id: two
-  guide_id: two
+  guide_id: one
   type:
