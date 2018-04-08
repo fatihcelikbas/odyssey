@@ -43,5 +43,9 @@ Rails.application.routes.draw do
       post '/decline' => "reservations#decline"
     end
   end
+  
+  get '/payment_method' => "travelers#payment"
+  #get '/payout_method' => "users#payout"
+  post '/add_card' => "travelers#add_card"
 
 end

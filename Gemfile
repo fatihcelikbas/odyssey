@@ -49,3 +49,6 @@ gem 'ransack', '~> 1.7'
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'bootstrap-select-rails'
+
+gem 'stripe', '~> 3.0.0'
+gem 'rails-assets-card', source: 'https://rails-assets.org'

@@ -23,4 +23,10 @@ class TravelersControllerTest < ActionDispatch::IntegrationTest
     get conversations_url(@traveler)
     assert_response :success
   end
+  
+  test "should get your payment method" do
+    get payment_method_url(@traveler)
+    assert_response :success
+  end
+  
 end
