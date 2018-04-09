@@ -12,6 +12,7 @@ one:
   confirmed_at: 2016-01-02 08:31:23
   confirmation_sent_at: 2016-01-02 08:30:59
   stripe_id: cus_Ce494L3KjAXvDI
+  merchant_id: acct_1CF3cyIKAZqtfpBn
 two: 
   firstname: Bob
   lastname: Miller

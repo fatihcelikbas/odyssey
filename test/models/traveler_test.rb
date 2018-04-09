@@ -33,4 +33,8 @@ class TravelerTest < ActiveSupport::TestCase
   test 'traveler has card' do
     assert_not_nil @traveler.stripe_id
   end
+  
+  test 'traveler has payout configured' do
+    assert_not_nil @traveler.merchant_id
+  end
 end

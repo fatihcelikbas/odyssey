@@ -11,6 +11,38 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_traveler_registration_url
     end
   end
+  
+  #connect Stripe for payout
+  def stripe_connect
+    auth_data = request.env["omniauth.auth"]
+    @traveler = current_traveler
+
+    if @traveler.persisted?
+      @traveler.merchant_id = auth_data.uid
+      @traveler.save
+
+      if !@traveler.merchant_id.blank?
+
+        # Set Payout Schedule for every week
+        account = Stripe::Account.retrieve(current_traveler.merchant_id)
+        account.payout_schedule.delay_days = 7
+        account.payout_schedule.interval = "daily"
+
+        # account.payout_schedule.monthly_anchor = 15
+        # account.payout_schedule.interval = "monthly"
+
+        account.save
+        
+        logger.debug "#{account}"
+      end
+      
+      sign_in_and_redirect @traveler, event: :authentication
+      flash[:notice] = "Stripe Account Created" if is_navigational_format?
+    else
+      session["devise.stripe_connect_data"] = request.env["omniauth.auth"]
+      redirect_to root_path
+    end
+  end
 
   def failure
     redirect_to root_path

@@ -50,5 +50,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'bootstrap-select-rails'
 
+#payment gems
 gem 'stripe', '~> 3.0.0'
 gem 'rails-assets-card', source: 'https://rails-assets.org'
+gem 'omniauth-stripe-connect', '~> 2.10.0'

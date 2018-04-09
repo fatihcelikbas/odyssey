@@ -29,4 +29,9 @@ class TravelersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   
+  test "should get your payout method" do
+    get payout_method_url(@traveler)
+    assert_response :success
+  end
+  
 end

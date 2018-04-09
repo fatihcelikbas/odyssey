@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   end
   
   get '/payment_method' => "travelers#payment"
-  #get '/payout_method' => "users#payout"
+  get '/payout_method' => "travelers#payout"
   post '/add_card' => "travelers#add_card"
 
 end
