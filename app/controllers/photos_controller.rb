@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
-
+    
+    #add photo to a tour
     def create
         @tour = Tour.find(params[:tour_id])
         if params[:images]
@@ -9,10 +10,10 @@ class PhotosController < ApplicationController
 
             @photos = @tour.photos
             redirect_back(fallback_location: request.referer, notice: "Saved...")
-
         end
     end
-
+    
+    #remove photo from a tour
     def destroy
        @photo = Photo.find(params[:id])
        @tour = @photo.tour

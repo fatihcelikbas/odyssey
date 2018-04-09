@@ -1,7 +1,7 @@
 class GuideReviewsController < ApplicationController
     
+    #create a new guide review given the right permissions
     def create
-        
         @reservation = Reservation.where(
                         id: guide_review_params[:reservation_id],
                         tour_id: guide_review_params[:tour_id],
@@ -9,10 +9,9 @@ class GuideReviewsController < ApplicationController
                         ).first
         
         if !@reservation.nil?
-           
-           @has_reviewed = GuideReview.where(
-                                reservation_id: @reservation.id,
-                                tourist_id: guide_review_params[:tourist_id]
+            @has_reviewed = GuideReview.where(
+                            reservation_id: @reservation.id,
+                            tourist_id: guide_review_params[:tourist_id]
                             ).first
             
             if @has_reviewed.nil?
@@ -24,7 +23,6 @@ class GuideReviewsController < ApplicationController
                 # Already reviewed
                 flash[:success] = "Already reviewed"
             end
-        
         else
             flash[:alert] = "Reservation not found"
         end
@@ -32,6 +30,7 @@ class GuideReviewsController < ApplicationController
         redirect_back(fallback_location: request.referer)
     end
     
+    #delete a review
     def destroy
        @guide_review = Review.find(params[:id])
        @guide_review.destroy
@@ -39,8 +38,10 @@ class GuideReviewsController < ApplicationController
        redirect_back(fallback_location: request.referer, notice: "Removed...!")
     end
     
-    
+
     private
+        
+        #define the parameters needed for a guide review
         def guide_review_params
            params.require(:guide_review).permit(:comment, :star, :tour_id, :reservation_id, :tourist_id) 
         end

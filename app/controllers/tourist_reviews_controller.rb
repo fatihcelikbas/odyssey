@@ -1,7 +1,7 @@
 class TouristReviewsController < ApplicationController
     
+    #create a tourist review given the right permissions
     def create
-        
         @reservation = Reservation.where(
                     id: tourist_review_params[:reservation_id],
                     tour_id: tourist_review_params[:tour_id]
@@ -12,11 +12,10 @@ class TouristReviewsController < ApplicationController
            @has_reviewed = TouristReview.where(
                                 reservation_id: @reservation.id,
                                 guide_id: tourist_review_params[:guide_id]
-                            ).first
+                                ).first
             
             if @has_reviewed.nil?
                 # Allow to review
-                
                 @tourist_review = current_traveler.tourist_reviews.create(tourist_review_params)
                 flash[:success] = "Review created..."
             else
@@ -31,6 +30,7 @@ class TouristReviewsController < ApplicationController
         redirect_back(fallback_location: request.referer)
     end
     
+    #delete a review
     def destroy
        @tourist_review = Review.find(params[:id])
        @tourist_review.destroy
@@ -40,7 +40,9 @@ class TouristReviewsController < ApplicationController
     
     
     private
-    def tourist_review_params
-        params.require(:tourist_review).permit(:comment, :star, :tour_id, :reservation_id, :guide_id) 
-    end
+        
+        #define the parameters needed for a tourist review
+        def tourist_review_params
+            params.require(:tourist_review).permit(:comment, :star, :tour_id, :reservation_id, :guide_id) 
+        end
 end

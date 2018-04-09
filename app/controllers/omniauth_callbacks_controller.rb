@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
+  #Facebook login through Omniauth
   def facebook
     # You need to implement the method below in your model (e.g. app/models/traveler.rb)
     @traveler = Traveler.from_omniauth(request.env["omniauth.auth"])
@@ -27,13 +29,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         account = Stripe::Account.retrieve(current_traveler.merchant_id)
         account.payout_schedule.delay_days = 7
         account.payout_schedule.interval = "daily"
-
+        
+        # Set Payout Schedule for the 15th of every month
         # account.payout_schedule.monthly_anchor = 15
         # account.payout_schedule.interval = "monthly"
 
         account.save
-        
-        logger.debug "#{account}"
       end
       
       sign_in_and_redirect @traveler, event: :authentication
@@ -44,7 +45,4 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def failure
-    redirect_to root_path
-  end
 end
