@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :phone_number, :description, :gender, :occupation, :education, :hometown, :languages => []])
-  end
+    #define variables needed for traveler profile when signing up and when updating profile
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:firstname, :lastname])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:firstname, :lastname, :phone_number, :description, :gender, :occupation, :education, :hometown, :languages => []])
+    end
 
 end

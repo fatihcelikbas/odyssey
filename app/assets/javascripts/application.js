@@ -22,6 +22,7 @@
 //= require bootstrap-select
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require card
 
 /*global toastr*/
 toastr.options = {

@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :authenticate_traveler!
   before_action :set_reservation, only: [:approve, :decline]
   
+  #create a reservation
   def create
     tour = Tour.find(params[:tour_id])
     
@@ -32,29 +33,36 @@ class ReservationsController < ApplicationController
     redirect_to tour
   end
   
+  #show all your trips
   def your_trips
     @trips = current_traveler.reservations.order(start_date: :asc)
   end
   
+  #show all your reservations for your tours
   def your_reservations
     @tours = current_traveler.tours
   end
   
+  #approve a reservation request
   def approve
     @reservation.Approved!
     redirect_to your_reservations_path
   end
 
+  #reject a reservation request
   def decline
     @reservation.Declined!
     redirect_to your_reservations_path
   end
 
-  
   private
+  
+    #find a reservation based on id
     def set_reservation
       @reservation = Reservation.find(params[:id])
     end
+    
+    #define the paramaters for a reservations
     def reservation_params
       params.require(:reservation).permit(:start_date)
     end
