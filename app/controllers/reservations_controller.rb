@@ -8,6 +8,9 @@ class ReservationsController < ApplicationController
     
     if current_traveler == tour.traveler
       flash[:alert] = "You can't book your own tour!"
+    elsif current_traveler.stripe_id.blank?
+      flash[:alert] = "Please update your payment method."
+      return redirect_to payment_method_path
     else
       start_date = Date.parse(reservation_params[:start_date])
       
@@ -17,12 +20,13 @@ class ReservationsController < ApplicationController
       @reservation.total = tour.price * tour.duration
       @reservation.duration = tour.duration 
       #@reservation.save
-      if @reservation.save
+      if @reservation.Waiting!
         # there was an extra space before .Request
         if tour.Request?
           flash[:notice] = "Request sent successfully!"
         else
           @reservation.Approved!
+          charge(tour, @reservation)
           flash[:notice] = "Reservation created successfully!"
         end
       else
@@ -45,7 +49,7 @@ class ReservationsController < ApplicationController
   
   #approve a reservation request
   def approve
-    @reservation.Approved!
+    charge(tour, @reservation)
     redirect_to your_reservations_path
   end
 
@@ -56,7 +60,35 @@ class ReservationsController < ApplicationController
   end
 
   private
-  
+    
+    #charge when a booking is instant
+    def charge(tour, reservation)
+      if !reservation.traveler.stripe_id.blank?
+        customer = Stripe::Customer.retrieve(reservation.traveler.stripe_id)
+        charge = Stripe::Charge.create(
+          :customer => customer.id,
+          :amount => reservation.total * 100, #since stripe counts as cents
+          :description => tour.title,
+          :currency => "usd",
+          # :destination => {
+          #   :amount => reservation.total * 80, # 80% of the total amount goes to the Host
+          #   :account => tour.traveler.merchant_id # Host's Stripe customer ID
+          # }
+        )
+
+        if charge
+          reservation.Approved!
+          flash[:notice] = "Reservation created successfully!"
+        else
+          reservation.Declined!
+          flash[:alert] = "Reservations unsuccessful: payment did not go through."
+        end
+      end
+    rescue Stripe::CardError => e
+      reservation.declined!
+      flash[:alert] = e.message
+    end
+    
     #find a reservation based on id
     def set_reservation
       @reservation = Reservation.find(params[:id])
