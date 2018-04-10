@@ -1,26 +1,29 @@
-<div class="container">
+<div class="container wide">
+  <br/>
   <div class="row">
       <div class="col-md-3">
-          <div class="center">
-            <br/>
-              <%= image_tag avatar_url(@traveler), class: "img-circle avatar-full"%>
-              <% if current_traveler && current_traveler != @traveler %>
-                  <%= link_to "Send traveler", conversations_path(sender_id: current_traveler.id, recipient_id: @traveler.id), method: :post, class: "btn btn-default" %>
-              <% end %>
-          </div>
-          <br/>
           <div class="panel panel-default">
-              <div class="panel-heading">Verified Information</div>
+              <div class="panel-heading">
+                <div class="profileimg">
+                  <br/>
+                    <%= image_tag avatar_url(@traveler), class: "img-circle imgborder avatar-full"%>
+                    <% if current_traveler && current_traveler != @traveler %>
+                        <%= link_to "Send traveler", conversations_path(sender_id: current_traveler.id, recipient_id: @traveler.id), method: :post, class: "btn btn-default" %>
+                    <% end %>
+                </div>
+                <br/>
+                <%= @traveler.firstname + " " + @traveler.lastname %>
+              </div>
               <div class="panel-body">
                   <ul class="sidebar-list">
                     <% if @traveler.confirmation_token%>
-                        <li>Email Address<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                        <li>Email Address<span class="pull-right icon-purple"><i class="fa fa-check-square-o"></i></span></li>
                     <% end %>
                     <% if @traveler.provider %>
-                        <li>Facebook<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                        <li>Facebook<span class="pull-right icon-purple"><i class="fa fa-check-square-o"></i></span></li>
                     <% end %>
                     <% if !(@traveler.phone_number == "") && !@traveler.phone_number.nil?%>
-                        <li>Phone Number<span class="pull-right icon-green"><i class="fa fa-check-square-o"></i></span></li>
+                        <li>Phone Number<span class="pull-right icon-purple"><i class="fa fa-check-square-o"></i></span></li>
                     <% end %>
                   </ul>
               </div>
@@ -28,13 +31,12 @@
       </div>
 
       <div class="col-md-9">
-          <h2><%= @traveler.firstname + " " + @traveler.lastname %></h2>
           <div class = "panel panel-default">
             <div class="panel-heading">Overview</div>
               <div class="panel-body">
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-language fa-lg icon-blue"></i>&nbsp&nbspSpeaks:
+                        <td><i class="fa fa-language fa-lg icon-purple"></i>&nbsp&nbspSpeaks:
                           <% if @traveler.languages && @traveler.languages != "{}" && @traveler.languages != [""]%>
                             <%= @traveler.languages.compact.split("").flatten.join(", ").html_safe %>
                           <% else %>
@@ -44,7 +46,7 @@
 
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-briefcase fa-lg icon-blue"></i>
+                        <td><i class="fa fa-briefcase fa-lg icon-purple"></i>
                           <% if !(@traveler.occupation == "") && !@traveler.occupation.nil?%>
                             <%=@traveler.occupation%>
                           <% else %>
@@ -55,7 +57,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-home fa-lg icon-blue"></i>
+                        <td><i class="fa fa-home fa-lg icon-purple"></i>
                           <% if !(@traveler.hometown == "") && !@traveler.hometown.nil?%>
                             <%=@traveler.hometown%>
                           <% else %>
@@ -64,7 +66,7 @@
                         </td>
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-book fa-lg icon-blue"></i>
+                        <td><i class="fa fa-book fa-lg icon-purple"></i>
                           <% if !(@traveler.education == "") && !@traveler.education.nil?%>
                             <%=@traveler.education%>
                           <% else %>
@@ -75,12 +77,12 @@
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <td><i class="fa fa-user-circle-o fa-lg icon-blue"></i>&nbspMember since
+                        <td><i class="fa fa-user-circle-o fa-lg icon-purple"></i>&nbspMember since
                           <%=@traveler.created_at.year%>
                         </td>
                       </div>
                       <div class="col-md-6">
-                        <td><i class="fa fa-transgender-alt fa-lg icon-blue"></i>
+                        <td><i class="fa fa-transgender-alt fa-lg icon-purple"></i>
                         <% if !(@traveler.gender == "") && !@traveler.gender.nil?%>
                           <%=@traveler.gender%>
                         <% else %>
@@ -99,25 +101,34 @@
             </div>
           </div>
 
-          <h4>Listings (<%= @tours.length %>)</h4><br/>
-          <div class="row">
-              <%= render partial: "tours/tours_list", locals: {tours: @tours}%>
+          <div class="panel panel-default">
+              <div class="panel-heading">Listings (<%= @tours.length %>)</div>
+              <div class="panel-body">
+                  <%= render partial: "tours/tours_list", locals: {tours: @tours}%>
+            </div>
           </div>
+
       </div>
       <br/>
 
-      <h4>Reviews from Tourists (<%= @tourist_reviews.count %>)</h4>
-      <div class="row">
-          <%= render "reviews/tourist_list" %>
-      </div>
-      <br/>
 
-      <h4>Reviews from Guides (<%= @guide_reviews.count %>)</h4>
-      <div class="row">
-          <%= render "reviews/guide_list" %>
-      </div>
 
 
 
   </div>
+  <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">Reviews from Tourists (<%= @tourist_reviews.count %>)</div>
+        <div class="panel-body">
+            <%= render "reviews/tourist_list" %>
+      </div>
+    </div>
+    <br/>
+    <div class="panel panel-default">
+        <div class="panel-heading">Reviews from Guides (<%= @guide_reviews.count %>)</div>
+        <div class="panel-body">
+            <%= render "reviews/guide_list" %>
+      </div>
+    </div>
+</div>
 </div>
