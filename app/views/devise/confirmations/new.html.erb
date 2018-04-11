@@ -1,14 +1,15 @@
 <h2 class="text-center">Resend Confirmation Instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render 'shared/devisemes' %>
 
-  <div class="form-group">
+  <div class="col-md-4 col-md-offset-4">
     <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control", autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit", class: "btn btn-normal"%>
+  
+    </br>
+    <div class="actions">
+      <%= f.submit "Submit", class: "btn btn-normal"%>
+    </div>
   </div>
 
 <% end %>
