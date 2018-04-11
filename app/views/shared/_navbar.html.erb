@@ -29,7 +29,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li class="padd-top">
-            <%= button_to "Give us feedback!", href="https://docs.google.com/forms/d/e/1FAIpQLSfT1wdd4vL2T3wxusGnXQWexhbTNJbor7EdjPpxzcdiHqtqWQ/viewform?usp=sf_link", class: "extraPadding btn btn-form2 btn-small", :method => :get%>
+            <%= button_to "Give us feedback!", href="https://docs.google.com/forms/d/e/1FAIpQLSfT1wdd4vL2T3wxusGnXQWexhbTNJbor7EdjPpxzcdiHqtqWQ/viewform?usp=sf_link", class: "extraPadding btn btn-form2 btn-small", :method => :get, form: {target: '_blank'}%>
         </li>
         <% if (!traveler_signed_in?) %>
             <li class="padd"><%= link_to "Login", new_traveler_session_path %></li>
