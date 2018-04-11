@@ -1,12 +1,10 @@
-<div class="container">
+<div class="container narrow">
+  <br/>
   <div class="row">
-
-    <!-- LEFT PANEL -->
-    <div class="col-md-8">
 
       <!-- Listing Name -->
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
           <h1><%= @tour.title %></h1>
           <%= @tour.city %>
         </div>
@@ -15,6 +13,13 @@
             <%= image_tag avatar_url(@tour.traveler), class: "img-circle avatar-large" %><br/><br/>
             <%= @tour.traveler.firstname + " " + @tour.traveler.lastname %>
           <% end %>
+        </div>
+        <div class="col-md-4">
+          <div class="pull-right">
+            <% if @tour.traveler_id == current_traveler.id %>
+              <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form lower" %>
+            <% end %>
+          </div>
         </div>
       </div>
       <hr/>
@@ -181,22 +186,14 @@
             </div>
         <% end %>
       </div>
-    </div>
 
-    <!-- RIGHT PANEL -->
-    <div class="col-md-4">
-      <!-- RESERVATION FORM -->
-      <% if @tour.traveler_id != current_traveler.id %>
-        <%= render 'reservations/form' %>
-      <% end %>
-    </div>
-    
-    <div class="col-md-4">
-      <!-- EDIT TOUR -->
-      <% if @tour.traveler_id == current_traveler.id %>
-        <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form" %>
-      <% end %>
-    </div>
+    <% if @tour.traveler_id != current_traveler.id %>
+      <!-- RIGHT PANEL -->
+      <div class="col-md-4">
+        <!-- RESERVATION FORM -->
+          <%= render 'reservations/form' %>
+      </div>
+    <% end %>
 
   </div>
 

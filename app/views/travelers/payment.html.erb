@@ -1,4 +1,5 @@
 <div class="container">
+  <br/>
   <div class="row">
     <div class="col-md-3">
       <ul class="sidebar-list">
@@ -6,34 +7,34 @@
         <li class="sidebar-item"><%= link_to "Payout Method", payout_method_path, class: "sidebar-link" %></li>
       </ul>
     </div>
-  
+
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-heading">Payment Method</div>
         <div class="panel-body">
           <div class="container">
               <%= form_tag("/add_card", method: "post", id: "add-card") do %>
-  
+
                   <label>
                     <span>Name</span>
                     <input name="cardholder-name" class="field" placeholder="Jane Doe" />
                   </label>
-  
+
                   <label>
                     <span>Card</span>
                     <div id="card-element" class="field"></div>
                   </label>
-  
+
                   <div class="outcome">
                     <div class="error" role="alert"></div>
                   </div>
-  
+
                   <% if current_traveler.stripe_id %>
                     <button type="submit">Update Card</button>
                   <% else %>
                     <button type="submit">Add Card</button>
                   <% end %>
-                  
+
               <% end %>
           </div>
         </div>
