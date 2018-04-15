@@ -55,7 +55,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # config.action_mailer.default_url_options = { host: 'https://odyssey1.herokuapp.com/'}
-  config.action_mailer.default_url_options = { host: 'https://fa6533ca91454fbfb72da04d33db8b5b.vfs.cloud9.us-east-2.amazonaws.com/' }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
