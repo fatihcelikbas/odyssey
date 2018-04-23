@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409000309) do
+ActiveRecord::Schema.define(version: 20180422224205) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
@@ -126,6 +126,13 @@ ActiveRecord::Schema.define(version: 20180409000309) do
     t.index ["confirmation_token"], name: "index_travelers_on_confirmation_token", unique: true
     t.index ["email"], name: "index_travelers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_travelers_on_reset_password_token", unique: true
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.integer "tour_id"
+    t.integer "traveler_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

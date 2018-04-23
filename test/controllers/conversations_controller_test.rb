@@ -11,13 +11,21 @@ class ConversationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
+  test "should be correct sender" do
+    assert_equal @conversation.sender_id, 1
+  end
+
+  test "should be correct recipient" do
+    assert_equal @conversation.recipient_id, 2
+  end
+
+  #Tests with traveler signed in
   test "should create conversation" do
     sign_in(@traveler)
     post conversations_url, params: { sender_id: 1, recipient_id: 2}
     assert_response :found
   end
 
-  #Tests with traveler signed in
   test "should get index" do
     sign_in(@traveler)
     get conversations_url

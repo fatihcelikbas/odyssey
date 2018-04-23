@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'wishlists/index'
+
   root 'pages#home'
 
   devise_for :travelers,
@@ -37,13 +39,16 @@ Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
   get 'search' => 'pages#search'
 
+  post '/add_to_wishlist' => 'wishlists#add_to_wishlist'
+  delete '/delete_from_wishlist' => 'wishlists#delete_from_wishlist'
+
   resources :reservations, only: [:approve, :decline] do
     member do
       post '/approve' => "reservations#approve"
       post '/decline' => "reservations#decline"
     end
   end
-  
+
   get '/payment_method' => "travelers#payment"
   get '/payout_method' => "travelers#payout"
   post '/add_card' => "travelers#add_card"

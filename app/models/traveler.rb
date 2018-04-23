@@ -9,6 +9,7 @@ class Traveler < ApplicationRecord
   has_many :reservations
   has_many :tourist_reviews, class_name: "TouristReview", foreign_key: "tourist_id"
   has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id"
+  has_many :wishlists
 
   serialize :languages
 
