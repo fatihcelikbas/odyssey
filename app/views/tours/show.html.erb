@@ -1,6 +1,15 @@
-<div class="container narrow">
+<% if current_traveler.id && (@tour.traveler_id == current_traveler.id) %>
+  <div class="container narrow">
+<% else %>
+  <div class="container">
+<% end %>
   <br/>
   <div class="row">
+
+    <!-- Left Panel -->
+    <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
+    <div class="col-md-8">
+    <% end %>
 
       <!-- Listing Name -->
       <div class="row">
@@ -16,7 +25,7 @@
         </div>
         <div class="col-md-4">
           <div class="pull-right">
-            <% if @tour.traveler_id == current_traveler.id %>
+            <% if current_traveler.id && (@tour.traveler_id == current_traveler.id) %>
               <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form lower" %>
             <% end %>
           </div>
@@ -186,16 +195,19 @@
             </div>
         <% end %>
       </div>
-
-    <% if @tour.traveler_id != current_traveler.id %>
+      <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
+        </div>
+      <% end %>
+    <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
       <!-- RIGHT PANEL -->
       <div class="col-md-4">
         <!-- RESERVATION FORM -->
           <%= render 'reservations/form' %>
       </div>
     <% end %>
-
   </div>
+
+
 
   <script>
     $('#average_rating').raty({

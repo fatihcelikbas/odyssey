@@ -21,10 +21,11 @@
         <% end %>
       </div>
     <% end %>
-    <%= form_tag(add_to_wishlist_path(:tour_id => @tour.id), method: "post", id: "btn_book") do %>
-        <button type="submit">Add to Wishlist</button>
-    <% end %>
   </div>
+
+  <%= form_tag(add_to_wishlist_path(:tour_id => @tour.id), method: "post", id: "btn_book") do %>
+        <button id="submit">Add to Wishlist</button>
+    <% end %>
 </div>
 
 <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>

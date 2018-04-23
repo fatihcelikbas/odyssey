@@ -11,7 +11,7 @@ class Traveler < ApplicationRecord
   has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id"
   has_many :wishlists
 
-  serialize :languages
+  # serialize :languages
 
   validates :firstname, presence: true, length: {maximum: 50}
   validates :lastname, presence: true, length: {maximum: 50}
