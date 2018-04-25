@@ -49,7 +49,8 @@ class ReservationsController < ApplicationController
 
   #approve a reservation request
   def approve
-    charge(tour, @reservation)
+    # charge(tour, @reservation)
+    @reservation.Approved!
     redirect_to your_reservations_path
   end
 

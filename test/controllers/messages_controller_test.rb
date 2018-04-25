@@ -13,10 +13,17 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
         assert_response :redirect
     end
 
-    test "should get conversation if signed in" do
+    test "should get all conversations if signed in" do
         sign_in(@traveler)
         get conversations_url()
         assert_response :success
     end
-    
+
+    test "should get specific conversation if signed in" do
+      sign_in(@traveler)
+      get conversation_messages_path(@messages)
+      assert_response :success
+    end
+    # Started POST "/conversations/1/messages"
+
 end

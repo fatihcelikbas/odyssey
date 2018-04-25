@@ -13,11 +13,11 @@
 
       <!-- Listing Name -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-7">
           <h1><%= @tour.title %></h1>
           <%= @tour.city %>
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-md-1 text-right">
           <%= link_to traveler_path(@tour.traveler) do %>
             <%= image_tag avatar_url(@tour.traveler), class: "img-circle avatar-large" %><br/><br/>
             <%= @tour.traveler.firstname + " " + @tour.traveler.lastname %>
