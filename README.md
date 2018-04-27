@@ -28,7 +28,7 @@ The project is compatible with ruby 2.4.2p198
 
 ## Deployment
 
-In order to deploy go to: https://dashboard.heroku.com/apps/odyssey1
+In order to deploy go to: https://odyssey1.herokuapp.com/
 
 ## Running the tests
 
