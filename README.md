@@ -26,13 +26,17 @@ some of the features including payment, messaging, and email confirmation.
 
 The project is compatible with ruby 2.4.2p198
 
-## Running the tests
-
-You can run tests by running rails tests
-
 ## Deployment
 
 In order to deploy go to: https://dashboard.heroku.com/apps/odyssey1
+
+## Running the tests
+
+You can run tests by running: 
+
+```
+rails tests
+```
 
 ## Built With
 
