@@ -52,8 +52,8 @@ Only one version is available at the moment, we will implement versioning soon.
 ## Authors
 
 * **Artin Kasumyan** - [artin2](https://github.com/artin2)
-* **Arthur Kasumyan** - [artin2](https://github.com/arthurk33)
-* **Fatih Celikbas** - [artin2](https://github.com/fatcelikbas)
+* **Arthur Kasumyan** - [arthurk33](https://github.com/arthurk33)
+* **Fatih Celikbas** - [fatcelikbas](https://github.com/fatcelikbas)
 
 ## License
 
