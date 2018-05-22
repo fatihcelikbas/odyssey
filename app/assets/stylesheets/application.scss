@@ -487,6 +487,12 @@ img.resize {
   border:1px solid #c4c4c4;
 }
 
+.peopleCarouselImg img {
+  width: auto;
+  height: 225px;
+  max-height: 225px;
+}
+
 .bootstrap-select .btn{
   margin-top: -3px;
   border-color: #c4c4c4;
