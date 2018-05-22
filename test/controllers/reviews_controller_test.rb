@@ -18,7 +18,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   #   delete tourist_review_url(@touristReview)
   #   assert_response :failure
   # end
-  
+
   # test "should not post guide review if not signed in" do
   #   post guide_reviews_url(@guideReview), params: {:guide_review => @guideReview }
   #   assert_response :redirect
@@ -39,7 +39,7 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
   #   delete tourist_review_url(@touristReview)
   #   assert_response :success
   # end
-  
+
   # test "should post guide review if not signed in" do
   #   post guide_reviews_url(@guideReview), params: {:guide_review => @guideReview }
   #   assert_response :success

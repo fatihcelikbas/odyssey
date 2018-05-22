@@ -1,4 +1,4 @@
-<% if current_traveler.id && (@tour.traveler_id == current_traveler.id) %>
+<% if current_traveler && (@tour.traveler_id == current_traveler.id) %>
   <div class="container narrow">
 <% else %>
   <div class="container">
@@ -7,7 +7,7 @@
   <div class="row">
 
     <!-- Left Panel -->
-    <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
+    <% if current_traveler && (@tour.traveler_id != current_traveler.id) %>
     <div class="col-md-8">
     <% end %>
 
@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-4">
           <div class="pull-right">
-            <% if current_traveler.id && (@tour.traveler_id == current_traveler.id) %>
+            <% if current_traveler && (@tour.traveler_id == current_traveler.id) %>
               <%= link_to "Edit Tour", listing_tour_path(@tour), class: "btn btn-form lower" %>
             <% end %>
           </div>
@@ -195,10 +195,10 @@
             </div>
         <% end %>
       </div>
-      <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
+      <% if current_traveler && (@tour.traveler_id != current_traveler.id) %>
         </div>
       <% end %>
-    <% if current_traveler.id && (@tour.traveler_id != current_traveler.id) %>
+    <% if current_traveler && (@tour.traveler_id != current_traveler.id) %>
       <!-- RIGHT PANEL -->
       <div class="col-md-4">
         <!-- RESERVATION FORM -->
