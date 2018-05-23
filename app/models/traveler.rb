@@ -5,12 +5,11 @@ class Traveler < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
 
-  has_many :tours
-  has_many :reservations
-  has_many :tourist_reviews, class_name: "TouristReview", foreign_key: "tourist_id"
-  has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id"
-  has_many :wishlists
-  has_many :travelers,  dependent: :destroy
+  has_many :tours, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  has_many :tourist_reviews, class_name: "TouristReview", foreign_key: "tourist_id", dependent: :destroy
+  has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id", dependent: :destroy
+  has_many :wishlists, dependent: :destroy
 
   # serialize :languages
 
