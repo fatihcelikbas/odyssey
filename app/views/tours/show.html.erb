@@ -1,3 +1,5 @@
+<div>
+</div>
 <% if current_traveler && (@tour.traveler_id == current_traveler.id) %>
   <div class="container narrow">
 <% else %>
@@ -203,7 +205,9 @@
       <!-- RIGHT PANEL -->
       <div class="col-md-4">
         <!-- RESERVATION FORM -->
+        <div class="fixed">
           <%= render 'reservations/form' %>
+        </div>
       </div>
     <% end %>
   </div>
