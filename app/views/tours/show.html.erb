@@ -112,7 +112,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <% @photos.each do |photo| %>
-                  <div class="item peopleCarouselImg <%= 'active' if photo.id == @photos[0].id %>">
+                  <div class="item <%= 'active' if photo.id == @photos[0].id %>">
                     <%= image_tag photo.image.url() %>
                   </div>
               <% end %>
@@ -166,7 +166,7 @@
               });
 
               var infoWindow = new google.maps.InfoWindow({
-                content: '<div id="content"><%= image_tag @tour.cover_photo(:medium) %></div>'
+                content: '<div id="content"><%= image_tag @tour.cover_photo(:small) %></div>'
               });
 
               infoWindow.open(map, marker);
