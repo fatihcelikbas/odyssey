@@ -10,8 +10,7 @@ class Traveler < ApplicationRecord
   has_many :tourist_reviews, class_name: "TouristReview", foreign_key: "tourist_id", dependent: :destroy
   has_many :guide_reviews, class_name: "GuideReview", foreign_key: "guide_id", dependent: :destroy
   has_many :wishlists, dependent: :destroy
-  has_many :messages, dependent: :destroy
-  has_many :conversations, dependent: :destroy
+  has_many :conversations, dependent: :destroy, foreign_key: :sender_id
 
   # serialize :languages
 
