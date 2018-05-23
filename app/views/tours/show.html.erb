@@ -166,7 +166,7 @@
               });
 
               var infoWindow = new google.maps.InfoWindow({
-                content: '<div id="content"><%= image_tag @tour.cover_photo(:small) %></div>'
+                content: '<div id="content"><%= image_tag @tour.cover_photo(:medium) %></div>'
               });
 
               infoWindow.open(map, marker);
