@@ -227,6 +227,13 @@ a {
   font-weight: bold;
 }
 
+.truncate {
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .row-space-1 {
   margin-top: 6px;
   margin-bottom: 6px;

@@ -190,7 +190,7 @@
                 <div class="panel-heading preview">
                   <%= image_tag tour.cover_photo(:medium) %>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body truncate">
                   <%= link_to tour.title, tour %><br/>
                   (<%= tour.distance.round(2) %> kms away)
                 </div>

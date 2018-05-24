@@ -4,7 +4,7 @@
           <div class="panel-heading preview">
               <%= image_tag tour.cover_photo(:medium) %>
           </div>
-          <div class="panel-body">
+          <div class="panel-body truncate">
               <%= link_to tour.title, tour%><br/>
               $<%= tour.price %> - Capacity: <%= tour.max_persons %> - Duration: <%= pluralize(tour.duration, "hour")%>
               <div id="star_<%= tour.id %>"></div> <%= pluralize(tour.tourist_reviews.count, "review") %>
