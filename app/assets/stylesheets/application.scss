@@ -112,6 +112,12 @@ a {
   font-weight: 400;
 }
 
+// .searchbar {
+//   background-color: #FFFFFF;
+//   position: relative; /* Set the navbar to fixed position */
+//   top: 0; /* Position the navbar at the top of the page */
+//   width: 100%; /* Full width */
+// }
 .padd {
   padding-bottom: 8px;
 }
@@ -455,24 +461,19 @@ a {
 }
 
 #left {
-  padding: 10px 400px 10px 20px;
-  overflow: scroll;
+  float: left;
+  padding: 10px 10px 10px 30px;
+  overflow: hidden;
   height: 100%;
-}
-
-#right {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 450px;
-  height: 100%;
+  width: 50%;
 }
 
 #mapright {
   position: fixed;
-  top: 0;
+  padding: 1%;
+  padding-bottom: 6%;
   right: 0;
-  width: 518px;
+  width: 50%;
   height: 100%;
 }
 
