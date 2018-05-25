@@ -4,7 +4,7 @@
       <%= form_tag search_path, method: :get do %>
         <div class="row">
           <div class="col-md-6">
-            <%= text_field_tag :search, params[:search], placeholder: "Somewhere else?", class: "form-control", id: "finish" %>
+            <%= text_field_tag :search, params[:search], placeholder: "Somewhere else?", class: "form-control", id: "autofill" %>
           </div>
           <div class="col-md-3">
             <%= submit_tag "Search", class: "btn btn-normal" %>
@@ -89,7 +89,7 @@
                 <hr/>
 
                 <div class="row text-center">
-                  <%= f.submit "Search", class: "btn btn-form" %>
+                  <%= f.submit "Filter", class: "btn btn-form" %>
                 </div>
             <% end %>
         </div>
@@ -106,7 +106,7 @@
     <div id="mapright">
       <!-- GOOGLE MAP -->
       <div id="map" style="width: 100%; height: 100%"></div>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0zDCpjAQe3f2xk_BRtnyMLWb9Bo1mQH4"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0zDCpjAQe3f2xk_BRtnyMLWb9Bo1mQH4&libraries=places"></script>
       <script>
           function initialize(tours) {
             var tour_location = {lat: <%=@location[0]%>, lng: <%=@location[1]%>};
@@ -145,7 +145,7 @@
 
 <script>
   $(function() {
-    $("#finish").geocomplete();
+    $("#autofill").geocomplete();
   })
   $('#reservation_start_date').datetimepicker({
       format: 'd.m.Y H:i',
@@ -163,18 +163,16 @@
     }
     open = !open;
   });
-</script>
 
-<script>
   $(function() {
-    $("#q_price_gteq").val('100');
-    $("#q_price_lteq").val('500');
+    $("#q_price_gteq").val('10');
+    $("#q_price_lteq").val('50');
 
     $("#slider-range").slider({
       range: true,
       min: 0,
-      max: 1000,
-      values: [100, 500],
+      max: 100,
+      values: [10, 50],
       slide: function(event, ui) {
         $("#q_price_gteq").val(ui.values[0]);
         $("#q_price_lteq").val(ui.values[1]);
